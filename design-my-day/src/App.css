@@ -60,7 +60,8 @@ div#homepage {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items:center;
+  align-items:flex-start;
+  padding: 25px;
 }
 
 h1.homepage {
@@ -73,14 +74,46 @@ h1.welcome {
 }
 
 div#greeting-header {
-  height: 200px;
-  width: 95vw;
+  height: 270px;
+  width: 70vw;
   background-color: rgb(255, 252, 244);
   border-radius: 20px;
   margin-top: 25px;
+  margin-bottom: 25px;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 h1.greeting-header {
   margin-left: 20px;
+}
+
+div#today {
+  background-color:tomato ;
+  width: 95vw;
+  height: 500px;
+  border-radius: 20px;
+  border-style: solid;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+h1.today {
+  margin-left: 25px;
+  margin-bottom: 0px;
+}
+
+h2.today {
+  margin-left: 25px;
+  margin-top: 5px;
+}
+
+div#warmups {
+  width: 60%;
+  height: 100px;
+  background-color: rgb(184, 191, 252);
+  margin-left: 25px;
+  border-radius: 25px;
 }
