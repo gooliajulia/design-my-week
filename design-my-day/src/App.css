@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@900&display=swap');
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,50 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+div#App {
+  display: flex;
+  flex-direction: column;
+}
+
+div#welcome {
+  background-color: seashell;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div#homepage {
+  background-color: rgb(119, 156, 151);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:center;
+}
+
+h1.homepage {
+  color: seashell;
+}
+
+h1.welcome {
+  margin-top: 0px;
+  font-family: 'Vollkorn', serif;
+}
+
+div#greeting-header {
+  height: 200px;
+  width: 95vw;
+  background-color: rgb(255, 252, 244);
+  border-radius: 20px;
+  margin-top: 25px;
+  display: flex;
+}
+
+h1.greeting-header {
+  margin-left: 20px;
 }
