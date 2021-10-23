@@ -2,6 +2,7 @@ import GreetingHeader from './GreetingHeader.js'
 import Today from './Today.js'
 import {useEffect, useState} from 'react';
 import Habits from './Habits.js';
+import MyTasks from './MyTasks.js';
 
 
 const HomePage = ({name}) => {
@@ -17,12 +18,15 @@ const HomePage = ({name}) => {
 
     return (
         <div id='homepage' >
-            <div id='greeting-habits'>
+            <div id='greeting-tasks'>
             <GreetingHeader
             name={holdName}/>
-            <Habits />
+            <MyTasks />
             </div>
+            <div id='habits-today'>
+            <Habits />
             <Today />
+            </div>
         </div>
 
     )

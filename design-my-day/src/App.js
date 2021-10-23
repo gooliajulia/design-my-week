@@ -17,21 +17,20 @@ function App() {
     <div className="App">
       <Route path='/' exact>
       <div id='welcome'>
-            <form onSubmit={welcomeSubmit}>
-                <h1 className='welcome'>Welcome!</h1>
-                <h4 className='welcome'>Please enter your name so I can sign you in:</h4>
-                <input type='text' id='name' onChange={(ev) => setName(ev.target.value)}/>
-                <br/>
-                <br/>
-                <Link to='/homepage/name'>
-                    <input type='submit' value='Enter'/>
-                </Link>
-            </form>
+          <h1 className='welcome'>Welcome!</h1>
+          <h4 className='welcome'>Please enter your name so I can sign you in:</h4>
+          <form id='name-submit' onSubmit={welcomeSubmit}>
+            <input type='text' id='name' onChange={(ev) => setName(ev.target.value)}/>
+            <br/>
+            <br/>
+            <Link to='/homepage/name'>
+              <input type='submit' id='submit-name' value='Enter'/>
+            </Link>
+          </form>
         </div>
       </Route>
       <Route path='/homepage/name' exact >
-        <HomePage 
-        name={name}/>
+        <HomePage name={name}/>
       </Route>
 
     </div>
