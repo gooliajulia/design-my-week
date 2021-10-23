@@ -56,12 +56,11 @@ div#welcome {
 div#homepage {
   background-color: rgb(119, 156, 151);
   width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items:flex-start;
-  padding: 25px;
+  /* align-items:flex-start;
+  padding: 25px; */
 }
 
 h1.homepage {
@@ -79,10 +78,25 @@ div#greeting-header {
   background-color: rgb(255, 252, 244);
   border-radius: 20px;
   margin-top: 25px;
+  margin-left: 25px;
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+div#greeting-habits {
+  display: flex;
+}
+
+div#habits {
+  background-color: yellowgreen;
+  width: 23vw;
+  border-radius: 25px;
+  margin-top: 25px;
+  margin-left: 25px;
+  margin-right: 20px;
+  height: 270px;
 }
 
 h1.greeting-header {
@@ -93,7 +107,9 @@ div#today {
   background-color:tomato ;
   width: 95vw;
   height: 500px;
+  margin-left: 25px;
   border-radius: 20px;
+  margin-bottom: 25px;
   border-style: solid;
   display: flex;
   flex-direction: column;
@@ -112,8 +128,9 @@ h2.today {
 
 div#warmups {
   width: 60%;
-  height: 100px;
+  height: 50%;
   background-color: rgb(184, 191, 252);
   margin-left: 25px;
+  margin-top: 20px;
   border-radius: 25px;
 }

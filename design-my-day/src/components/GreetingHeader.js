@@ -1,4 +1,5 @@
-import WarmUps from './WarmUps.js'
+import WarmUps from './WarmUps.js';
+import Habits from './Habits.js';
 
 const GreetingHeader = ({name}) => {
     return (
