@@ -7,12 +7,16 @@ import FollowingDays from './FollowingDays.js';
 import axios from 'axios';
 
 const HomePage = ({name}) => {
+    const [currentUsername, setCurrentUsername] = useState('');
+    const [logInUsername, setLogInUsername] = useState('');
+    const [logInPassword, setLogInPassword] = useState('');
     const [usersName, setUsersName] = useState('Julia');
     const [newUserName, setNewUserName] = useState('');
     const [newUserPassword, setNewUserPassword] = useState('');
     const [newUserFirstName, setNewUserFirstName] = useState('');
     const [usersList, setUsersList] = useState([]);
     const [toggleFetch, setToggleFetch] = useState(false);
+    const [currentUserAccountInfo, setCurrentUserAccountInfo] = useState([]);
 
 
     const API_URL = 'https://api.airtable.com/v0/app8BFd6lNH00rllQ/Users?api_key=keyxASDYlQZpfwP0J'
@@ -23,20 +27,35 @@ const HomePage = ({name}) => {
         const resp = await axios.get(`${API_URL}`);
         console.log(resp.data.records);
         setUsersList(resp.data.records);
+        return(resp.data.records)
     }
 
     useEffect(() => {
         console.log('getting user list');
         getUserInfo();
+        console.log(usersList)
     }, [toggleFetch])
 
 
     const handleLogInSubmit = (ev) => {
         ev.preventDefault();
         console.log('log in attempted');
-
-        getUserInfo();
-        setUsersName('change this to be fetched from api')
+        console.log(logInUsername);
+        let userFound = usersList.find((user, index) => {
+            if(user.fields.username === logInUsername)
+            return true;
+        });
+        console.log(userFound);
+        if (userFound.fields.password === logInPassword) {
+            console.log('passwords match')
+            setCurrentUsername(logInUsername);
+        } else {
+            console.log("passwords don't match")
+            alert("Password is incorrect. Please try again.")
+            setLogInPassword('');
+            setCurrentUsername('');
+        }
+        setUsersName()
     }
 
     const handleCreateAccountSubmit = (ev) => {
@@ -77,11 +96,11 @@ const HomePage = ({name}) => {
                     <form id='log-in' onSubmit={handleLogInSubmit}>
                         <h2>Log In: </h2>
                         <label htmlFor='username'>Username: </label>
-                        <input type='text' id='username' placeholder='username' />
+                        <input type='text' id='username' placeholder='username' onChange={(ev) => setLogInUsername(ev.target.value)}/>
                         <br/>
                         <br/>
                         <label htmlFor='password'>Password: </label>
-                        <input type='password' placeholder='password' />
+                        <input type='password' placeholder='password' value={logInPassword} onChange={(ev) => setLogInPassword(ev.target.value)} />
                         <br/>
                         <br/>
                         <input type='submit' />
