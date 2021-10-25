@@ -5,7 +5,7 @@ const FollowingDays = ({day, tasksArray}) => {
             <h2>{day}</h2>
             <ul>
                 {tasksArray.map((task, idx) => (
-                    <li>{task}</li>
+                    <li key={idx}>{task}</li>
                 ))}
             </ul>
 

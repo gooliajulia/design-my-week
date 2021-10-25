@@ -36,6 +36,14 @@ form#name-submit {
   display: flex;
 }
 
+h5.match {
+  color: green;
+}
+
+h5.noMatch {
+  color: red;
+}
+
 
 h4.welcome {
   font-weight:lighter;

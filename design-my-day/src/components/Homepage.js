@@ -27,11 +27,24 @@ const HomePage = ({name}) => {
             console.log(resp.data.records);
         }
         getUserInfo();
+        setUsersName('change this to be fetched from api')
     }
 
     const createNewAccount = async (ev) => {
         ev.preventDefault();
         console.log('create account attempted');
+
+        const handleConfirmPassword = () => {
+            console.log('new user password: ' + newUserPassword);
+            console.log('new user confirm password: ' + newUserConfirmPassword);
+            console.log('checking passwords match')
+
+            if ( newUserPassword === newUserConfirmPassword ) {
+                setConfirmPassword(true);
+                console.log('passwords match!')
+            }
+        };
+        handleConfirmPassword();
 
         const newUser = {
             records: [
@@ -44,9 +57,13 @@ const HomePage = ({name}) => {
                 }
             ]
         }
-        await axios.post(`${API_URL}`, newUser);
-
+        if (setConfirmPassword) {
+        await axios.post(`${API_URL}`, newUser)
+        } else {
+            alert('passwords do not match');
+        }
     }
+
 
 
     return (
@@ -68,6 +85,10 @@ const HomePage = ({name}) => {
                     </form>
                     <form id='create-account' onSubmit={createNewAccount}>
                         <h2>Create new acount: </h2>
+                        <label htmlFor='new-user-name'>First Name: </label>
+                        <input type='text' id='new-user-name' placeholder='first name' onChange={(ev) => setNewUserFirstName(ev.target.value)} />
+                        <br/>
+                        <br/>
                         <label htmlFor='create-username'>Username: </label>
                         <input type='text' id='create-username' placeholder='username' onChange={(ev) => setNewUserName(ev.target.value)}/>
                         <br/>
@@ -77,8 +98,8 @@ const HomePage = ({name}) => {
                         <br/>
                         <br/>
                         <label htmlFor='confirm-password' >Confirm password: </label>
-                        <input type='password' id='confirm-password' placeholder='confirm password' onChange={(ev) => setNewUserConfirmPassword(ev.target.value)}/>
-                        <h5 id='confirm-password'>do passwords match</h5>
+                        <input type='password' id='confirm-password' placeholder='confirm password'  onChange={(ev) => setNewUserConfirmPassword(ev.target.value)}/>
+                        <h5 className={ confirmPassword ? 'match' : 'noMatch'} id='confirm-password'>do passwords match</h5>
                         <br/>
                         <br/>
                         <input type='submit' />
@@ -96,7 +117,7 @@ const HomePage = ({name}) => {
             <Today />
             </div>
             <div id='following-days-display'>
-            <FollowingDays 
+                <FollowingDays 
                 day={'Tuesday'}
                 tasksArray={['pay the bills', 'walk the dog', 'code some sick shit', 'pedicure', 'do the dishes']}
             />
