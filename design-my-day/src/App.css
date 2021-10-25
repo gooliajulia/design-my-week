@@ -38,6 +38,7 @@ form#name-submit {
 
 h5.match {
   color: green;
+  display: none;
 }
 
 h5.noMatch {
