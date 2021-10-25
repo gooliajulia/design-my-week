@@ -76,6 +76,15 @@ div#homepage {
   padding: 25px; */
 }
 
+div#user-log-in {
+  padding: 25px;
+}
+
+div#user-forms {
+  display: flex;
+  gap: 50px;
+}
+
 div#greeting-header {
   /* height: 270px; */
   width: 70vw;
