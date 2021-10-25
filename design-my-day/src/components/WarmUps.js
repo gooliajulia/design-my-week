@@ -1,13 +1,18 @@
 
 const WarmUps = () => {
+
+    const WarmUpClicked = (title) => {
+        console.log(`${title} warmup was clicked`)
+    }
+
     return (
         <div id='warmups'>
-            <button>Typing</button>
-            <button>Spanish</button>
-            <button>Coding</button>
-            <button>Reflection</button>
-            <button>News</button>
-            <button>Vocabulary</button>
+            <button onClick={WarmUpClicked('typing')} >Typing</button>
+            <button onClick={WarmUpClicked('typing')} >Spanish</button>
+            <button onClick={WarmUpClicked('typing')} >Coding</button>
+            <button onClick={WarmUpClicked('typing')} >Reflection</button>
+            <button onClick={WarmUpClicked('typing')} >News</button>
+            <button onClick={WarmUpClicked('typing')} >Vocabulary</button>
 
         </div>
     )

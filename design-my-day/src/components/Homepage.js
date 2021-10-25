@@ -10,7 +10,7 @@ const HomePage = ({name}) => {
     const [holdName, setHoldName] = useState('')
     console.log(name)
 
-    useEffect(() => {
+    useEffect((name) => {
         setHoldName(name);
     }, [])
 
