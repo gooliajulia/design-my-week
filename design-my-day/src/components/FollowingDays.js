@@ -1,12 +1,12 @@
 
 const FollowingDays = ({day, tasksArray}) => {
     return (
-        <div>
+        <div className='day-display'>
             <h2>{day}</h2>
             <ul>
-                {tasksArray.map((task) => {
+                {tasksArray.map((task, idx) => (
                     <li>{task}</li>
-                })}
+                ))}
             </ul>
 
         </div>

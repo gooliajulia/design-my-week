@@ -33,6 +33,18 @@ const HomePage = ({name}) => {
                 day={'Tuesday'}
                 tasksArray={['pay the bills', 'walk the dog', 'code some sick shit', 'pedicure', 'do the dishes']}
             />
+                        <FollowingDays 
+                day={'Wednesday'}
+                tasksArray={['pay the bills', 'walk the dog', 'code some sick shit', 'pedicure', 'do the dishes']}
+            />
+                        <FollowingDays 
+                day={'Thursday'}
+                tasksArray={['pay the bills', 'walk the dog', 'code some sick shit', 'pedicure', 'do the dishes']}
+            />
+                        <FollowingDays 
+                day={'Friday'}
+                tasksArray={['pay the bills', 'walk the dog', 'code some sick shit', 'pedicure', 'do the dishes']}
+            />
             </div>
         </div>
 

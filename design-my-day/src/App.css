@@ -96,6 +96,7 @@ h1.greeting-header {
 div#greeting-tasks {
   display: flex;
 }
+
 div#my-tasks {
   height: 270px;
   width: 25vw;
@@ -158,4 +159,31 @@ div#warmups {
   margin-left: 25px;
   margin-top: 20px;
   border-radius: 25px;
+}
+
+div#following-days-display {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: space-around;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+
+}
+div.day-display {
+  width: 35vw;
+  height: 300px;
+  margin: 0 13px;
+  background-color: seashell;
+  border-style: solid;
+  border-color: rgb(243, 230, 217);
+  border-radius: 25px;
+}
+
+div.day-display h2 {
+  margin-left: 25px;
+}
+
+div.day-display li {
+  font-size: 15px;
 }
