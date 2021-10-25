@@ -73,11 +73,12 @@ const HomePage = ({name}) => {
                         <br/>
                         <br/>
                         <label htmlFor='create-password'>Create password: </label>
-                        <input type='password' id='create-password' placeholder='password' onChange={(ev) => setNewUserName(ev.target.value)}/>
+                        <input type='password' id='create-password' placeholder='password' onChange={(ev) => setNewUserPassword(ev.target.value)}/>
                         <br/>
                         <br/>
                         <label htmlFor='confirm-password' >Confirm password: </label>
-                        <input type='password' id='confirm-password' placeholder='confirm password' />
+                        <input type='password' id='confirm-password' placeholder='confirm password' onChange={(ev) => setNewUserConfirmPassword(ev.target.value)}/>
+                        <h5 id='confirm-password'>do passwords match</h5>
                         <br/>
                         <br/>
                         <input type='submit' />
