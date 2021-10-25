@@ -49,13 +49,15 @@ const HomePage = ({name}) => {
         if (userFound.fields.password === logInPassword) {
             console.log('passwords match')
             setCurrentUsername(logInUsername);
+            setCurrentUserAccountInfo(userFound);
+            setUsersName(userFound.fields.firstName)
         } else {
             console.log("passwords don't match")
             alert("Password is incorrect. Please try again.")
             setLogInPassword('');
             setCurrentUsername('');
         }
-        setUsersName()
+
     }
 
     const handleCreateAccountSubmit = (ev) => {
