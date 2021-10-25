@@ -3,6 +3,7 @@ import Today from './Today.js'
 import {useEffect, useState} from 'react';
 import Habits from './Habits.js';
 import MyTasks from './MyTasks.js';
+import FollowingDays from './FollowingDays.js';
 
 
 const HomePage = ({name}) => {
@@ -26,6 +27,12 @@ const HomePage = ({name}) => {
             <div id='habits-today'>
             <Habits />
             <Today />
+            </div>
+            <div id='following-days-display'>
+            <FollowingDays 
+                day={'Tuesday'}
+                tasksArray={['pay the bills', 'walk the dog', 'code some sick shit', 'pedicure', 'do the dishes']}
+            />
             </div>
         </div>
 

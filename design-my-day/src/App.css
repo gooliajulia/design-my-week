@@ -103,8 +103,9 @@ div#my-tasks {
   margin-left: 25px;
   margin-right: 25px;
   border-style: solid;
+  border-color:rgb(243, 230, 217);
   border-radius: 25px;
-  background-color: seashell;
+  background-color: rgb(255, 245, 238);
 }
 
 h1.my-tasks {
@@ -120,6 +121,7 @@ div#habits {
   width: 500px;
   border-radius: 25px;
   border-style: solid;
+  border-color: rgb(243, 230, 217);
   margin-left: 25px;
   height: 500px;
 }
