@@ -68,6 +68,7 @@ h1.welcome {
 div#homepage {
   background-color: rgb(247, 236, 225);
   width: 100vw;
+  /* padding: 25px; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -76,8 +77,9 @@ div#homepage {
 }
 
 div#greeting-header {
-  height: 270px;
+  /* height: 270px; */
   width: 70vw;
+  padding: 25px;
   background-color: seashell;
   border-radius: 20px;
   border-style: solid;
@@ -90,7 +92,8 @@ div#greeting-header {
 }
 
 h1.greeting-header {
-  margin-left: 20px;
+  margin: 0;
+  margin-bottom: 8px;
 }
 
 div#greeting-tasks {
@@ -98,11 +101,12 @@ div#greeting-tasks {
 }
 
 div#my-tasks {
-  height: 270px;
+  /* height: 270px; */
   width: 25vw;
   margin-top: 25px;
   margin-left: 25px;
   margin-right: 25px;
+  margin-bottom: 25px;
   border-style: solid;
   border-color:rgb(243, 230, 217);
   border-radius: 25px;
@@ -152,13 +156,26 @@ h2.today {
 }
 
 div#warmups {
-  width: 65vw;
-  margin-right: 25px;
-  height: 50%;
+  padding: 10px;
+  /* margin-right: 25px; */
   background-color: rgb(247, 236, 225);
-  margin-left: 25px;
-  margin-top: 20px;
+  /* margin-left: 25px; */
+  /* margin-top: 20px; */
   border-radius: 25px;
+  display: flex;
+  justify-content:space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content:space-around;
+  gap: 10px;
+}
+
+div#warmups button {
+  height: 40px;
+  width: 85px;
+  border-radius: 25px;
+  border-style: none;
+  background-color: seashell;
 }
 
 div#following-days-display {
