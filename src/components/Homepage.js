@@ -13,7 +13,7 @@ const HomePage = ({name}) => {
     const [taskEnj, setTaskEnj] = useState(1);
     const [taskEstTime, setTaskEstTime] = useState(5);
 
-    const [currentUsername, setCurrentUsername] = useState('');
+    // const [currentUsername, setCurrentUsername] = useState('');
 
     const [logInUsername, setLogInUsername] = useState('');
     const [logInPassword, setLogInPassword] = useState('');
@@ -44,7 +44,7 @@ const HomePage = ({name}) => {
     useEffect(() => {
         console.log('getting user list');
         getUserInfo();
-        console.log(usersList)
+        // console.log(usersList)
     }, [toggleFetch])
 
 
