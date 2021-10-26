@@ -4,6 +4,8 @@ import './App.css';
 import {Route, Link} from 'react-router-dom';
 import {useState} from 'react';
 
+console.log(process.env.REACT_APP_API_KEY)
+
 function App() {
 
   const [name, setName] = useState('');

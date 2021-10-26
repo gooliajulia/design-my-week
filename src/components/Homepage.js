@@ -6,14 +6,18 @@ import MyTasks from './MyTasks.js';
 import FollowingDays from './FollowingDays.js';
 import axios from 'axios';
 
+
+
 const HomePage = ({name}) => {
+
+
     const [task, setTask] = useState('');
     const [taskImp, setTaskImp] = useState(1);
     const [taskUrg, setTaskUrg] = useState(1);
     const [taskEnj, setTaskEnj] = useState(1);
     const [taskEstTime, setTaskEstTime] = useState(5);
 
-    // const [currentUsername, setCurrentUsername] = useState('');
+    const [currentUsername, setCurrentUsername] = useState('');
 
     const [logInUsername, setLogInUsername] = useState('');
     const [logInPassword, setLogInPassword] = useState('');
@@ -44,7 +48,7 @@ const HomePage = ({name}) => {
     useEffect(() => {
         console.log('getting user list');
         getUserInfo();
-        // console.log(usersList)
+        console.log(usersList)
     }, [toggleFetch])
 
 
@@ -65,8 +69,8 @@ const HomePage = ({name}) => {
         } else {
             console.log("passwords don't match")
             alert("Password is incorrect. Please try again.")
-            setLogInPassword('');
-            setCurrentUsername('');
+            // setLogInPassword('');
+            // // setCurrentUsername('');
         }
 
     }
