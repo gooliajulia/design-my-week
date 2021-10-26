@@ -152,7 +152,6 @@ const HomePage = ({name}) => {
                         <br/>
                         <input className='add-button' type='submit' value='Add Task' />
                         <br/>
-                        <br/>
                     </form>
                 </div>
             </div>

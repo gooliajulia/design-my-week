@@ -162,6 +162,12 @@ div#my-task-buttons button {
 
 div#add-new-task-form {
   padding: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+  border-style: solid;
+  width:min-content;
+  border-radius: 20px;
+
 }
 
 input[type=text] {
