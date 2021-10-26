@@ -13,13 +13,17 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
         quickAddToggle ?  setQuickAddButtonText('Quick Add +') : setQuickAddButtonText('Hide Quick Add') ;
     }
 
+    const manageTasks = () => {
+        console.log('manage tasks button clicked')
+    }
+
 
     return (
         <div id='my-tasks'>
             <h1 className='my-tasks'>My Tasks</h1>
             <div id='my-task-buttons'>
                 <button id='quick-add' className={ quickAddToggle ? 'show' : 'no-show'} onClick={quickAdd} >{quickAddButtonText}</button>
-                <button >Manage Tasks</button>
+                <button onClick={manageTasks} >Manage Tasks</button>
             </div>
             { quickAddToggle ? 
                         <AddTaskForm 
@@ -36,7 +40,6 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
                         setTaskEstTime={setTaskEstTime}
                     />
             : null}
-
         </div>
     )
 }

@@ -173,6 +173,7 @@ input#time-est {
 
 div#habits-today {
   display: flex;
+  flex-wrap:wrap;
 }
 
 div#habits {
@@ -188,7 +189,7 @@ div#habits {
 
 div#my-tasks {
   height:fit-content;
-  width: 31vw;
+  width: 390px;
   padding: 25px;
   margin-left: 25px;
   margin-bottom: 25px;
@@ -230,7 +231,6 @@ div#my-task-buttons button {
 div#add-new-task-form {
   padding: 30px;
   margin-top: 25px;
-  margin-bottom: 25px;
   border-style: solid;
   width:min-content;
   border-radius: 25px;
@@ -239,10 +239,23 @@ div#add-new-task-form {
 
 }
 
+div#manage-tasks {
+  height: 300px;
+  width: 50vw;
+  padding: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+  margin-right: 25px;
+  background-color: seashell;
+  border-style: solid;
+  border-color: rgb(243, 230, 217);
+  border-radius: 25px;
+}
+
 div#today {
   background-color:seashell ;
   width: 60vw;
-  height: 535px;
+  height: 510px;
   margin-left: 25px;
   margin-right: 25px;
   border-radius: 20px;

@@ -5,6 +5,7 @@ import Habits from './Habits.js';
 import MyTasks from './MyTasks.js';
 import FollowingDays from './FollowingDays.js';
 import axios from 'axios';
+import DisplayTaskList from './DisplayTaskList.js';
 
 
 
@@ -143,6 +144,21 @@ const HomePage = ({name}) => {
         setTaskEstTime('');
 
     }
+
+    const getUsersTaskArray = async () => {
+        console.log('getting users task array')
+        const resp = await axios.get(TASK_API_URL)
+        console.log(resp.data.records);
+        const taskList = resp.data.records
+        const checkUser = (task) => {
+            return task.fields.username === currentUsername 
+        }
+        console.log(taskList.find(checkUser));
+        const userFound = taskList.find((checkUser));
+        return(userFound);
+    }
+
+    const sampleTaskArray = ['walk the dog', 'do the dishes', 'bake cookies']
     
 
 
@@ -189,7 +205,7 @@ const HomePage = ({name}) => {
             <div id='my-tasks-management'>
             </div>
             <div id='habits-today'>
-            <MyTasks
+                <MyTasks
                     addNewTask={addNewTask}
                     task={task}
                     setTask={setTask}
@@ -201,7 +217,12 @@ const HomePage = ({name}) => {
                     setTaskEnj={setTaskEnj}
                     taskEstTime={taskEstTime}
                     setTaskEstTime={setTaskEstTime} />
-            <Today />
+                <div id='manage-tasks'>
+                    <DisplayTaskList
+                    taskArrayAll={sampleTaskArray}
+                    />
+                </div>
+                <Today />
             </div>
             <div id='following-days-display'>
                 <FollowingDays 
