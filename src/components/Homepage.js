@@ -12,10 +12,10 @@ const HomePage = ({name}) => {
 
 
     const [task, setTask] = useState('');
-    const [taskImp, setTaskImp] = useState(1);
-    const [taskUrg, setTaskUrg] = useState(1);
-    const [taskEnj, setTaskEnj] = useState(1);
-    const [taskEstTime, setTaskEstTime] = useState(5);
+    const [taskImp, setTaskImp] = useState('');
+    const [taskUrg, setTaskUrg] = useState('');
+    const [taskEnj, setTaskEnj] = useState('');
+    const [taskEstTime, setTaskEstTime] = useState('');
 
     const [currentUsername, setCurrentUsername] = useState('state not changed');
 
@@ -184,10 +184,22 @@ const HomePage = ({name}) => {
             <div id='greeting-tasks'>
             <GreetingHeader
             name={usersName}/>
-            <MyTasks />
+            <MyTasks 
+                addNewTask={addNewTask}
+                task={task}
+                setTask={setTask}
+                taskImp={taskImp}
+                setTaskImp={setTaskImp}
+                taskUrg={taskUrg} 
+                setTaskUrg={setTaskUrg}
+                taskEnj={taskEnj} 
+                setTaskEnj={setTaskEnj}
+                taskEstTime={taskEstTime}
+                setTaskEstTime={setTaskEstTime}
+            />
             </div>
             <div id='my-tasks-management'>
-                <div id='add-new-task-form' >
+                {/* <div id='add-new-task-form' >
                     <form onSubmit={addNewTask}>
                         <input className='input-form' type='text' id='task' placeholder='Task' value={task} onChange={(ev) => setTask(ev.target.value)} />
                         <br/>
@@ -208,7 +220,7 @@ const HomePage = ({name}) => {
                         <input className='add-button' type='submit' value='Add Task' />
                         <br/>
                     </form>
-                </div>
+                </div> */}
             </div>
             <div id='habits-today'>
             <Habits />

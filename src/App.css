@@ -132,6 +132,8 @@ div#my-tasks {
   border-color:rgb(243, 230, 217);
   border-radius: 25px;
   background-color: rgb(255, 245, 238);
+  display: flex;
+  flex-direction: column;
 }
 
 h1.my-tasks {
@@ -163,7 +165,7 @@ div#my-task-buttons button {
 
 div#add-new-task-form {
   padding: 30px;
-  margin-left: 25px;
+  /* margin-left: 25px; */
   margin-bottom: 25px;
   border-style: solid;
   width:min-content;
