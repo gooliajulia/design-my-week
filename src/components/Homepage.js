@@ -136,6 +136,12 @@ const HomePage = ({name}) => {
         // Create a POST request to the All User Tasks Table
         const resp = await axios.post(`${TASK_API_URL}`, newTask)
         console.log(resp)
+        setTask('');
+        setTaskImp('');
+        setTaskUrg('');
+        setTaskEnj('');
+        setTaskEstTime('');
+
     }
     
 
@@ -174,7 +180,6 @@ const HomePage = ({name}) => {
                         <input type='submit' />
                     </form>
                 </div>
-
             </div>
             <div id='greeting-tasks'>
             <GreetingHeader
@@ -184,19 +189,19 @@ const HomePage = ({name}) => {
             <div id='my-tasks-management'>
                 <div id='add-new-task-form' >
                     <form onSubmit={addNewTask}>
-                        <input className='input-form' type='text' id='task' placeholder='Task' onChange={(ev) => setTask(ev.target.value)} />
+                        <input className='input-form' type='text' id='task' placeholder='Task' value={task} onChange={(ev) => setTask(ev.target.value)} />
                         <br/>
                         <br/>
-                        <input className='input-form'  type='text' id='importance' placeholder="How important is this task? (1-10)" onChange={(ev) => setTaskImp(ev.target.value)}/>
+                        <input className='input-form'  type='text' id='importance' placeholder="How important is this task? (1-10)" value={taskImp} onChange={(ev) => setTaskImp(ev.target.value)}/>
                         <br/>
                         <br/>
-                        <input className='input-form'  type='text' id='urgency' placeholder="How urgent is this task? (1-10)" onChange={(ev) => setTaskUrg(ev.target.value)}/>
+                        <input className='input-form'  type='text' id='urgency' placeholder="How urgent is this task? (1-10)" value={taskUrg} onChange={(ev) => setTaskUrg(ev.target.value)}/>
                         <br/>
                         <br/>
-                        <input className='input-form'  type='text' id='enjoyment' placeholder="How much do you enjoy this task? (1-5)" onChange={(ev) => setTaskEnj(ev.target.value)} />
+                        <input className='input-form'  type='text' id='enjoyment' placeholder="How much do you enjoy this task? (1-5)" value={taskEnj} onChange={(ev) => setTaskEnj(ev.target.value)} />
                         <br/>
                         <br/>
-                        <input className='input-form'  type='text' id='time-est' placeholder="How long do you expect this task to take? (minutes)" onChange={(ev) => setTaskEstTime(ev.target.value)}/>
+                        <input className='input-form'  type='text' id='time-est' placeholder="How long do you expect this task to take? (minutes)" value={taskEstTime} onChange={(ev) => setTaskEstTime(ev.target.value)}/>
                         <br/>
                         <br/>
                         <br/>
