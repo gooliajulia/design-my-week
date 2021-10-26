@@ -98,10 +98,11 @@ div#user-forms {
 
 div#greeting-header {
   /* height: 270px; */
-  width: 60vw;
+  height:100px;
+  width: 55vw;
   padding: 25px;
   background-color: seashell;
-  border-radius: 20px;
+  border-radius: 25px;
   border-style: solid;
   margin-top: 25px;
   margin-left: 25px;
@@ -161,6 +162,10 @@ div#my-task-buttons button {
   border-radius: 25px;
   border-style: none;
   background-color: rgb(247, 236, 225);
+}
+
+button#quick-add {
+
 }
 
 div#add-new-task-form {
