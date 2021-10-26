@@ -134,7 +134,7 @@ const HomePage = ({name}) => {
             <div id='my-tasks-management'>
                 <div id='add-new-task-form' >
                     <form>
-                        <input className='input-form' type='text' id='task' placeholder='task'/>
+                        <input className='input-form' type='text' id='task' placeholder='Task'/>
                         <br/>
                         <br/>
                         <input className='input-form'  type='text' id='importance' placeholder="How important is this task? (1-10)" />
