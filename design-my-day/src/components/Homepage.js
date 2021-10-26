@@ -132,9 +132,27 @@ const HomePage = ({name}) => {
             <MyTasks />
             </div>
             <div id='my-tasks-management'>
-                <div id='add new task form' >
+                <div id='add-new-task-form' >
                     <form>
-                        
+                        <input className='input-form' type='text' id='task' placeholder='task'/>
+                        <br/>
+                        <br/>
+                        <input className='input-form'  type='text' id='importance' placeholder="How important is this task? (1-10)" />
+                        <br/>
+                        <br/>
+                        <input className='input-form'  type='text' id='urgency' placeholder="How urgent is this task? (1-10)" />
+                        <br/>
+                        <br/>
+                        <input className='input-form'  type='text' id='enjoyment' placeholder="How much do you enjoy this task? (1-5)" />
+                        <br/>
+                        <br/>
+                        <input className='input-form'  type='text' id='time-est' placeholder="How long do you expect this task to take? (minutes)" />
+                        <br/>
+                        <br/>
+                        <br/>
+                        <input className='add-button' type='submit' value='Add Task' />
+                        <br/>
+                        <br/>
                     </form>
                 </div>
             </div>

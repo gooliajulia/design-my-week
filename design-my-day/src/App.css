@@ -158,7 +158,38 @@ div#my-task-buttons button {
   border-radius: 25px;
   border-style: none;
   background-color: rgb(247, 236, 225);
+}
 
+div#add-new-task-form {
+  padding: 25px;
+}
+
+input[type=text] {
+  font-family: 'PT Serif', serif;
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: rgb(247, 236, 225);
+  padding: 3px;
+  outline: none;
+  /* width:320px; */
+}
+
+input[type=password] {
+  font-family: 'PT Serif', serif;
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: rgb(247, 236, 225);
+  padding: 3px;
+  outline: none;
+}
+
+input[type=submit] {
+  height: 40px;
+  width: 100px;
+  margin: 0px;
+  border-radius: 25px;
+  border-style: none;
+  background-color: seashell;
 }
 
 div#habits-today {
