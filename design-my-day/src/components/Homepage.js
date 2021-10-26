@@ -7,15 +7,26 @@ import FollowingDays from './FollowingDays.js';
 import axios from 'axios';
 
 const HomePage = ({name}) => {
+    const [task, setTask] = useState('');
+    const [taskImp, setTaskImp] = useState(1);
+    const [taskUrg, setTaskUrg] = useState(1);
+    const [taskEnj, setTaskEnj] = useState(1);
+    const [taskEstTime, setTaskEstTime] = useState(5);
+
     const [currentUsername, setCurrentUsername] = useState('');
+
     const [logInUsername, setLogInUsername] = useState('');
     const [logInPassword, setLogInPassword] = useState('');
+
     const [usersName, setUsersName] = useState('all-star');
     const [newUserName, setNewUserName] = useState('');
     const [newUserPassword, setNewUserPassword] = useState('');
     const [newUserFirstName, setNewUserFirstName] = useState('');
+
     const [usersList, setUsersList] = useState([]);
+
     const [toggleFetch, setToggleFetch] = useState(false);
+
     const [currentUserAccountInfo, setCurrentUserAccountInfo] = useState([]);
 
 
@@ -87,6 +98,23 @@ const HomePage = ({name}) => {
         setToggleFetch(!toggleFetch);
 
     }
+
+    const addNewTask = (ev) => {
+        ev.preventDefault();
+        console.log('adding task to airtable with username')
+        console.log('Task: ' + task);
+        console.log('Importance: ' + taskImp);
+        console.log('Urgency: ' + taskUrg);
+        console.log('Enjoyment: ' + taskEnj);
+        console.log('Estimated time to complete: ' + taskEstTime);
+
+        // Will likely need to parseInt each integer
+        // Add task to Airtable of Tasks with username as Name
+        // (try this first with the already assigned Name in airtable, otherwise add a username column)
+
+        // Create a POST request to the All User Tasks Table
+        
+    }
     
 
 
@@ -133,20 +161,20 @@ const HomePage = ({name}) => {
             </div>
             <div id='my-tasks-management'>
                 <div id='add-new-task-form' >
-                    <form>
-                        <input className='input-form' type='text' id='task' placeholder='Task'/>
+                    <form onSubmit={addNewTask}>
+                        <input className='input-form' type='text' id='task' placeholder='Task' onChange={(ev) => setTask(ev.target.value)} />
                         <br/>
                         <br/>
-                        <input className='input-form'  type='text' id='importance' placeholder="How important is this task? (1-10)" />
+                        <input className='input-form'  type='text' id='importance' placeholder="How important is this task? (1-10)" onChange={(ev) => setTaskImp(ev.target.value)}/>
                         <br/>
                         <br/>
-                        <input className='input-form'  type='text' id='urgency' placeholder="How urgent is this task? (1-10)" />
+                        <input className='input-form'  type='text' id='urgency' placeholder="How urgent is this task? (1-10)" onChange={(ev) => setTaskUrg(ev.target.value)}/>
                         <br/>
                         <br/>
-                        <input className='input-form'  type='text' id='enjoyment' placeholder="How much do you enjoy this task? (1-5)" />
+                        <input className='input-form'  type='text' id='enjoyment' placeholder="How much do you enjoy this task? (1-5)" onChange={(ev) => setTaskEnj(ev.target.value)} />
                         <br/>
                         <br/>
-                        <input className='input-form'  type='text' id='time-est' placeholder="How long do you expect this task to take? (minutes)" />
+                        <input className='input-form'  type='text' id='time-est' placeholder="How long do you expect this task to take? (minutes)" onChange={(ev) => setTaskEstTime(ev.target.value)}/>
                         <br/>
                         <br/>
                         <br/>
