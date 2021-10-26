@@ -17,7 +17,7 @@ const HomePage = ({name}) => {
     const [taskEnj, setTaskEnj] = useState(1);
     const [taskEstTime, setTaskEstTime] = useState(5);
 
-    const [currentUsername, setCurrentUsername] = useState('');
+    const [currentUsername, setCurrentUsername] = useState('state not changed');
 
     const [logInUsername, setLogInUsername] = useState('');
     const [logInPassword, setLogInPassword] = useState('');
@@ -35,6 +35,7 @@ const HomePage = ({name}) => {
 
 
     const API_URL = 'https://api.airtable.com/v0/app8BFd6lNH00rllQ/Users?api_key=keyxASDYlQZpfwP0J'
+    const TASK_API_URL = 'https://api.airtable.com/v0/app8BFd6lNH00rllQ/All%20User%20Tasks?api_key=keyxASDYlQZpfwP0J';
 
     const getUserInfo = async () => {
         console.log('getting user info...');
@@ -69,8 +70,8 @@ const HomePage = ({name}) => {
         } else {
             console.log("passwords don't match")
             alert("Password is incorrect. Please try again.")
-            // setLogInPassword('');
-            // // setCurrentUsername('');
+            setLogInPassword('');
+            setCurrentUsername('');
         }
 
     }
@@ -103,7 +104,7 @@ const HomePage = ({name}) => {
 
     }
 
-    const addNewTask = (ev) => {
+    const addNewTask = async (ev) => {
         ev.preventDefault();
         console.log('adding task to airtable with username')
         console.log('Task: ' + task);
@@ -116,8 +117,25 @@ const HomePage = ({name}) => {
         // Add task to Airtable of Tasks with username as Name
         // (try this first with the already assigned Name in airtable, otherwise add a username column)
 
+        const newTask = {
+            records: [
+                {
+                    fields: {
+                        Name: currentUsername,
+                        task,
+                        importance: taskImp,
+                        urgency: taskUrg,
+                        enjoyment: taskEnj,
+                        minutes: taskEstTime,
+                        
+                    }
+                }
+            ]
+        }
+
         // Create a POST request to the All User Tasks Table
-        
+        const resp = await axios.post(`${TASK_API_URL}`, newTask)
+        console.log(resp)
     }
     
 
