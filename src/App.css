@@ -98,7 +98,7 @@ div#user-forms {
 
 div#greeting-header {
   /* height: 270px; */
-  width: 70vw;
+  width: 60vw;
   padding: 25px;
   background-color: seashell;
   border-radius: 20px;
@@ -122,7 +122,7 @@ div#greeting-tasks {
 
 div#my-tasks {
   /* height: 270px; */
-  width: 25vw;
+  width: 31vw;
   padding: 25px;
   margin-top: 25px;
   margin-left: 25px;
@@ -165,7 +165,7 @@ div#my-task-buttons button {
 
 div#add-new-task-form {
   padding: 30px;
-  /* margin-left: 25px; */
+  margin-top: 25px;
   margin-bottom: 25px;
   border-style: solid;
   width:min-content;
