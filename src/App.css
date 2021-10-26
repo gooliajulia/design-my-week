@@ -88,6 +88,7 @@ div#homepage {
 div#user-log-in {
   padding: 25px;
   height: 400px;
+  background-color: seashell;
 }
 
 div#user-forms {
@@ -186,7 +187,7 @@ input[type=password] {
   font-family: 'PT Serif', serif;
   border: none;
   border-bottom: 2px solid black;
-  background-color: rgb(247, 236, 225);
+  background-color: seashell;
   padding: 3px;
   outline: none;
 }
