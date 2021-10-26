@@ -87,6 +87,7 @@ div#homepage {
 
 div#user-log-in {
   padding: 25px;
+  height: 100vh;
 }
 
 div#user-forms {
@@ -121,6 +122,7 @@ div#greeting-tasks {
 div#my-tasks {
   /* height: 270px; */
   width: 25vw;
+  padding: 25px;
   margin-top: 25px;
   margin-left: 25px;
   margin-right: 25px;
@@ -132,7 +134,31 @@ div#my-tasks {
 }
 
 h1.my-tasks {
-  margin-left: 20px;
+  /* margin-left: 20px; */
+  font-size: 22px;
+  margin: 0px;
+}
+
+div#my-task-buttons {
+  margin-top: 20px;
+  margin-left: 0px;
+  display: flex;
+  justify-content: left;
+  align-content: flex-start;
+  /* flex-direction: column; */
+  /* padding: 10px; */
+  gap: 15px;
+  
+}
+
+div#my-task-buttons button {
+  height: 40px;
+  width: 100px;
+  margin: 0px;
+  border-radius: 25px;
+  border-style: none;
+  background-color: rgb(247, 236, 225);
+
 }
 
 div#habits-today {

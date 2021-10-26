@@ -10,7 +10,7 @@ const HomePage = ({name}) => {
     const [currentUsername, setCurrentUsername] = useState('');
     const [logInUsername, setLogInUsername] = useState('');
     const [logInPassword, setLogInPassword] = useState('');
-    const [usersName, setUsersName] = useState('Julia');
+    const [usersName, setUsersName] = useState('all-star');
     const [newUserName, setNewUserName] = useState('');
     const [newUserPassword, setNewUserPassword] = useState('');
     const [newUserFirstName, setNewUserFirstName] = useState('');
@@ -130,6 +130,13 @@ const HomePage = ({name}) => {
             <GreetingHeader
             name={usersName}/>
             <MyTasks />
+            </div>
+            <div id='my-tasks-management'>
+                <div id='add new task form' >
+                    <form>
+                        
+                    </form>
+                </div>
             </div>
             <div id='habits-today'>
             <Habits />
