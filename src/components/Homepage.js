@@ -34,6 +34,7 @@ const HomePage = () => {
 
     // Toggle Fetch
     const [toggleFetch, setToggleFetch] = useState(false);
+    const [tasksToggleFetch, setTasksToggleFetch] = useState(false);
 
     // To assign all user info to
     const [currentUserAccountInfo, setCurrentUserAccountInfo] = useState([]);
@@ -176,14 +177,17 @@ const HomePage = () => {
         console.log(resp.data.records);
         const arrayOfObjects = resp.data.records;
 
-        let userTaskArray = [];
+        let tempUserTaskArray = [];
         arrayOfObjects.forEach((object) => {
             if (object.fields.Name === currentUsername) {
-                userTaskArray.push(object.fields)
+                tempUserTaskArray.push(object.fields)
             }
             console.log('current user task array')
-            console.log(userTaskArray);
-        })
+            console.log(tempUserTaskArray);
+        });
+        setUserTaskArray(tempUserTaskArray);
+        console.log('outside user task array: ');
+        console.log(userTaskArray);
 
         return(resp.data.records);
         
@@ -192,7 +196,7 @@ const HomePage = () => {
     useEffect(() =>{
         getUsersTaskArray();
         console.log('user task array: ' + userTaskArray);
-    }, [toggleFetch])
+    }, [tasksToggleFetch])
 
     const sampleTaskArray = ['walk the dog', 'do the dishes', 'bake cookies']
     
@@ -252,14 +256,14 @@ const HomePage = () => {
                     taskEnj={taskEnj} 
                     setTaskEnj={setTaskEnj}
                     taskEstTime={taskEstTime}
-                    setTaskEstTime={setTaskEstTime} />
-                <div id='manage-tasks'>
-                    <DisplayTaskList
-                    taskArrayAll={sampleTaskArray}
+                    setTaskEstTime={setTaskEstTime} 
+                    tasksToggleFetch={tasksToggleFetch}
+                    setTasksToggleFetch={setTasksToggleFetch}
                     />
-                    {/* <DisplayTaskList 
+                <div id='manage-tasks'>
+                    <DisplayTaskList 
                     taskArrayAll={userTaskArray}
-                    /> */}
+                    />
                 </div>
                 <Today />
             </div>

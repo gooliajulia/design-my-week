@@ -1,5 +1,10 @@
 
-const AddTaskForm = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTaskUrg, taskEnj, setTaskEnj, taskEstTime, setTaskEstTime}) => {
+const AddTaskForm = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTaskUrg, taskEnj, setTaskEnj, taskEstTime, setTaskEstTime, tasksToggleFetch, setTasksToggleFetch}) => {
+
+    const updateTaskList = () => {
+        setTasksToggleFetch(!tasksToggleFetch);
+    }
+
     return (
                 <div id='add-new-task-form' >
                     <form onSubmit={addNewTask}>
@@ -19,7 +24,7 @@ const AddTaskForm = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, s
                         <br/>
                         <br/>
                         <br/>
-                        <input className='add-button' type='submit' value='Add Task' />
+                        <input className='add-button' type='submit' value='Add Task' onClick={() => updateTaskList}/>
                         <br/>
                     </form>
                 </div>
