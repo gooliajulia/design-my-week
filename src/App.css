@@ -300,7 +300,7 @@ div#add-new-task-form {
 
 div#manage-tasks {
   height: 300px;
-  width: 50vw;
+  width: 90vw;
   padding: 25px;
   margin-left: 25px;
   margin-bottom: 25px;
@@ -309,6 +309,19 @@ div#manage-tasks {
   border-style: solid;
   border-color: rgb(243, 230, 217);
   border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+}
+
+div#task-list-display {
+  width: 90vw;
+
+}
+
+div#manage-tasks h4 {
+  font-weight: 200;
 }
 
 div#today {
