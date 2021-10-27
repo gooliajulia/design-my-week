@@ -102,11 +102,13 @@ const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksF
                     setTasksToggleFetch={setToggleTasksFetch}
                     TASK_API_URL={TASK_API_URL}
                     currentUsername={currentUsername}
+                    userTaskArray={userTaskArray}
+                    toggleTasksFetch={toggleTasksFetch}
+                    setToggleTasksFetch={setToggleTasksFetch}
                     />
 
                 <div id='manage-tasks'>
                 <h1>Users Task List</h1>
-                    {/* { userTaskArray.map((taskObject) => ( */}
                         <DisplayTaskList 
                             key={userTaskArray.id}
                             taskArrayAll={userTaskArray}
@@ -114,7 +116,6 @@ const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksF
                             setToggleTasksFetch={setToggleTasksFetch}
                             currentUsername={currentUsername}
                         />
-                    {/* ))}  */}
                 </div>
                 <Today />
             </div>

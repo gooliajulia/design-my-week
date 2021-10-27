@@ -1,8 +1,6 @@
 import useState from 'react';
 
 const DisplayTaskList = ({taskArrayAll, currentUsername}) => {
-    
-
 
     return (
         <div>
