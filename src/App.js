@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <Route path='/' exact>
-        { userIsLoggedIn ? <Redirect to='/homepage/:usersName' /> :         <UserEntry 
+        { userIsLoggedIn ? <Redirect to={`/homepage/${usersName}`} /> :         <UserEntry 
           USER_API_URL={USER_API_URL}
           toggleUsersFetch={toggleUsersFetch}
           setToggleUsersFetch={setToggleUsersFetch}
