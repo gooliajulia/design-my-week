@@ -29,8 +29,10 @@ function App() {
           setCurrentUserAccountInfo={setCurrentUserAccountInfo}
           setUsersName={setUsersName}
           setCurrentUsername={setCurrentUsername}
+          usersName={usersName}
         />
       </Route>
+      <Route path='/homepage/:usersName' exact>
         <HomePage               
           USER_API_URL={USER_API_URL}
           TASK_API_URL={TASK_API_URL}
@@ -39,6 +41,7 @@ function App() {
           usersName={usersName}
           currentUsername={currentUsername}
           />
+        </Route>
     </div>
   );
 }

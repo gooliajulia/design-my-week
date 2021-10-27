@@ -1,7 +1,8 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
-const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurrentUserAccountInfo, currentUserAccountInfo, setUsersName, setCurrentUsername}) => {
+const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurrentUserAccountInfo, currentUserAccountInfo, setUsersName, usersName, setCurrentUsername}) => {
 
     const [logInUsername, setLogInUsername] = useState('');
     const [logInPassword, setLogInPassword] = useState('');
@@ -79,35 +80,41 @@ const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurr
 
     return (
             <div id='user-log-in'>
-                <h1>Hello, if you have an account, click 'Log In', otherwise, click 'Create Account'...</h1>
+                <h1>Hello!</h1>
+                <h2>If you already have an account, please log in. Otherwise click 'Create Account'.</h2>
                 <div id='user-forms'>
                     <form id='log-in' onSubmit={handleLogInSubmit}>
                         <h2>Log In: </h2>
                         <label htmlFor='username'>Username: </label>
-                        <input type='text' id='username' placeholder='username' onChange={(ev) => setLogInUsername(ev.target.value)}/>
+                        <input type='text' id='username' onChange={(ev) => setLogInUsername(ev.target.value)}/>
                         <br/>
                         <br/>
                         <label htmlFor='password'>Password: </label>
-                        <input type='password' placeholder='password' value={logInPassword} onChange={(ev) => setLogInPassword(ev.target.value)} />
+                        <input type='password' value={logInPassword} onChange={(ev) => setLogInPassword(ev.target.value)} />
                         <br/>
                         <br/>
-                        <input type='submit' />
+                        <br/>
+                        <Link to={`./homepage/${usersName}`}>
+                            <input type='submit' />
+                        </Link>
                     </form>
                     <form id='create-account' onSubmit={handleCreateAccountSubmit}>
                         <h2>Create new acount: </h2>
-                        <label htmlFor='new-user-name'>First Name: </label>
-                        <input type='text' id='new-user-name' value={newUserFirstName} placeholder='first name' onChange={(ev) => setNewUserFirstName(ev.target.value)} />
+                        <label htmlFor='new-user-name'>First name: </label>
+                        <input type='text' id='new-user-name' value={newUserFirstName} onChange={(ev) => setNewUserFirstName(ev.target.value)} />
+                        {/* <br/> */}
                         <br/>
+                        <label htmlFor='create-username'>Create new username: </label>
+                        <input type='text' id='create-username' value={newUserName} onChange={(ev) => setNewUserName(ev.target.value)}/>
                         <br/>
-                        <label htmlFor='create-username'>Username: </label>
-                        <input type='text' id='create-username' value={newUserName} placeholder='username' onChange={(ev) => setNewUserName(ev.target.value)}/>
-                        <br/>
-                        <br/>
+                        {/* <br/> */}
                         <label htmlFor='create-password'>Create password: </label>
-                        <input type='text' id='create-password' value={newUserPassword} placeholder='password' onChange={(ev) => setNewUserPassword(ev.target.value)}/>
+                        <input type='text' id='create-password' value={newUserPassword} onChange={(ev) => setNewUserPassword(ev.target.value)}/>
                         <br/>
                         <br/>
+                        <Link to='./homepage/'>
                         <input type='submit' />
+                        </Link>
                     </form>
                 </div>
             </div>

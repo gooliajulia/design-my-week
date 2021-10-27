@@ -87,13 +87,51 @@ div#homepage {
 
 div#user-log-in {
   padding: 25px;
-  height: 400px;
+  height: 100vh;
   background-color: seashell;
+  /* gap: 50px; */
+  display: flex;
+  flex-direction: column;
+}
+
+div#user-log-in h1 {
+  color: rgb(141, 108, 100);
+  align-self: center;
+  font-size: 80px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+div#user-log-in h2 {
+  color: rgb(83, 76, 75);
+  align-self: center;
+  font-size: 25px;
+  margin-bottom: 50px;
 }
 
 div#user-forms {
   display: flex;
-  gap: 50px;
+  justify-content: center;
+  gap: 150px;
+}
+
+div#user-forms form {
+  background-color: rgb(255, 250, 245);
+  width: 240px;
+  border-radius: 25px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+div#user-forms input[type=text] {
+  background-color: rgb(255, 250, 245);
+  border-color: rgb(141, 108, 100);
+}
+
+div#user-forms input[type=password] {
+  background-color: rgb(255, 250, 245);
+  border-color: rgb(141, 108, 100);
 }
 
 div#greeting-header {
