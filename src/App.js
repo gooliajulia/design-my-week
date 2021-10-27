@@ -32,7 +32,7 @@ function App() {
         </div>
       </Route>
       <Route path='/homepage/name' exact >
-        <HomePage name={name}/>
+        <HomePage />
       </Route>
 
     </div>

@@ -8,31 +8,38 @@ import axios from 'axios';
 import DisplayTaskList from './DisplayTaskList.js';
 
 
-
-const HomePage = ({name}) => {
-
-
+const HomePage = () => {
+    // These set state for Add new task form
     const [task, setTask] = useState('');
     const [taskImp, setTaskImp] = useState('');
     const [taskUrg, setTaskUrg] = useState('');
     const [taskEnj, setTaskEnj] = useState('');
     const [taskEstTime, setTaskEstTime] = useState('');
 
-    const [currentUsername, setCurrentUsername] = useState('state not changed');
+    // This sets state of current user to use for API communication.
+    const [currentUsername, setCurrentUsername] = useState('sampleUser');
 
+    // These set state for user log in
     const [logInUsername, setLogInUsername] = useState('');
     const [logInPassword, setLogInPassword] = useState('');
 
+    // the state for Create New User form
     const [usersName, setUsersName] = useState('all-star');
     const [newUserName, setNewUserName] = useState('');
     const [newUserPassword, setNewUserPassword] = useState('');
     const [newUserFirstName, setNewUserFirstName] = useState('');
 
+    // The state for api request response of users
     const [usersList, setUsersList] = useState([]);
 
+    // Toggle Fetch
     const [toggleFetch, setToggleFetch] = useState(false);
 
+    // To assign all user info to
     const [currentUserAccountInfo, setCurrentUserAccountInfo] = useState([]);
+
+    // to assign user task array from api request
+    const [userTaskArray, setUserTaskArray] = useState([])
 
 
     const API_URL = 'https://api.airtable.com/v0/app8BFd6lNH00rllQ/Users?api_key=keyxASDYlQZpfwP0J'
@@ -145,18 +152,47 @@ const HomePage = ({name}) => {
 
     }
 
+
+    // const getUserInfo = async () => {
+    //     console.log('getting user info...');
+
+    //     const resp = await axios.get(`${API_URL}`);
+    //     console.log(resp.data.records);
+    //     setUsersList(resp.data.records);
+    //     return(resp.data.records)
+    // }
+
+    // useEffect(() => {
+    //     console.log('getting user list');
+    //     getUserInfo();
+    //     console.log(usersList)
+    // }, [toggleFetch])
+
     const getUsersTaskArray = async () => {
-        console.log('getting users task array')
-        const resp = await axios.get(TASK_API_URL)
+        console.log('getting users task array...');
+
+        const resp = await axios.get(`${TASK_API_URL}`);
+        console.log('api fetch results: ')
         console.log(resp.data.records);
-        const taskList = resp.data.records
-        const checkUser = (task) => {
-            return task.fields.username === currentUsername 
-        }
-        console.log(taskList.find(checkUser));
-        const userFound = taskList.find((checkUser));
-        return(userFound);
+        const arrayOfObjects = resp.data.records;
+
+        let userTaskArray = [];
+        arrayOfObjects.forEach((object) => {
+            if (object.fields.Name === currentUsername) {
+                userTaskArray.push(object.fields)
+            }
+            console.log('current user task array')
+            console.log(userTaskArray);
+        })
+
+        return(resp.data.records);
+        
     }
+
+    useEffect(() =>{
+        getUsersTaskArray();
+        console.log('user task array: ' + userTaskArray);
+    }, [toggleFetch])
 
     const sampleTaskArray = ['walk the dog', 'do the dishes', 'bake cookies']
     
@@ -221,6 +257,9 @@ const HomePage = ({name}) => {
                     <DisplayTaskList
                     taskArrayAll={sampleTaskArray}
                     />
+                    {/* <DisplayTaskList 
+                    taskArrayAll={userTaskArray}
+                    /> */}
                 </div>
                 <Today />
             </div>

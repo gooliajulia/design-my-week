@@ -1,12 +1,3 @@
-/*
-Info needed:
-- addNewTask function
-- task, setTask
-- taskImp, setTaskImp
-- taskUrg, setTaskUrg
-- taskEnj, setTaskEnj
-- taskEstTime, setTaskEstTime
-*/
 
 const AddTaskForm = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTaskUrg, taskEnj, setTaskEnj, taskEstTime, setTaskEstTime}) => {
     return (
