@@ -5,6 +5,7 @@ import {Route, Redirect} from 'react-router-dom';
 import {useState} from 'react';
 import UserEntry from './components/UserEntry.js'
 import Reflections from './components/Reflections.js';
+import Nav from './components/Nav.js';
 
 console.log(process.env.REACT_APP_API_KEY)
 
@@ -22,6 +23,9 @@ function App() {
 
   return (
     <div className="App">
+      <Route path='/'>
+        <Nav />
+      </Route>
       <Route path='/' exact>
         { userIsLoggedIn ? <Redirect to={`/homepage/${usersName}`} /> :         <UserEntry 
           USER_API_URL={USER_API_URL}

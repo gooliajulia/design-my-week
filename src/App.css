@@ -6,6 +6,11 @@ div#App {
   flex-direction: column;
 }
 
+div#nav-bar {
+  height: 45px;
+  background-color: lightcoral;
+}
+
 /* --------- Welcome Page ---------- */
 
 div#welcome {
