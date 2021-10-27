@@ -164,6 +164,18 @@ h1.greeting-header {
   margin-bottom: 8px;
 }
 
+div#warmups button {
+  height: 40px;
+  width: 85px;
+  border-radius: 25px;
+  border-style: none;
+  background-color: seashell;
+}
+
+button.darker {
+  background-color: rgb(155, 103, 94);
+}
+
 div#greeting-tasks {
   display: flex;
 }
@@ -338,13 +350,7 @@ div#warmups {
   gap: 10px;
 }
 
-div#warmups button {
-  height: 40px;
-  width: 85px;
-  border-radius: 25px;
-  border-style: none;
-  background-color: seashell;
-}
+
 
 div#following-days-display {
   display: flex;

@@ -111,6 +111,7 @@ const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksF
                             taskArrayAll={userTaskArray}
                             toggleTasksFetch={toggleTasksFetch}
                             setToggleTasksFetch={setToggleTasksFetch}
+                            currentUsername={currentUsername}
                         />
                     ))} 
                 </div>

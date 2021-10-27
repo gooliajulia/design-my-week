@@ -4,6 +4,7 @@ import './App.css';
 import {Route, Redirect} from 'react-router-dom';
 import {useState} from 'react';
 import UserEntry from './components/UserEntry.js'
+import Reflections from './components/Reflections.js';
 
 console.log(process.env.REACT_APP_API_KEY)
 
@@ -44,6 +45,9 @@ function App() {
         usersName={usersName}
         currentUsername={currentUsername}
         />
+    </Route>
+    <Route path='/reflections' >
+      <Reflections />
     </Route>
   </div>
   );

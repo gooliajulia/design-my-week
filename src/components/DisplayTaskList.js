@@ -1,12 +1,14 @@
+import useState from 'react';
 
-
-const DisplayTaskList = ({taskArrayAll}) => {
+const DisplayTaskList = ({taskArrayAll, currentUsername}) => {
+    
 
 
     return (
         <div>
             {taskArrayAll.map((task) => (
-                <h1>{task.fields.task}</h1>
+                <h2>{task.fields.task}</h2>
+                
             ))}
         </div>
     )
