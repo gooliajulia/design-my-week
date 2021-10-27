@@ -1,40 +1,44 @@
 
 import HomePage from './components/Homepage.js'
 import './App.css';
-import {Route, Link} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import {useState} from 'react';
+import UserEntry from './components/UserEntry.js'
 
 console.log(process.env.REACT_APP_API_KEY)
 
 function App() {
 
-  const [name, setName] = useState('');
+  const USER_API_URL = 'https://api.airtable.com/v0/app8BFd6lNH00rllQ/Users?api_key=keyxASDYlQZpfwP0J'
+  const TASK_API_URL = 'https://api.airtable.com/v0/app8BFd6lNH00rllQ/All%20User%20Tasks?api_key=keyxASDYlQZpfwP0J';
 
-  const welcomeSubmit = (ev) => {
-      ev.preventDefault();
-      console.log('welcome submit')
-      console.log(name);
-  }
+  const [toggleUsersFetch, setToggleUsersFetch] = useState(false);
+  const [toggleTasksFetch, setToggleTasksFetch] = useState(false);
+  const [currentUserAccountInfo, setCurrentUserAccountInfo] = useState([]);
+  const [usersName, setUsersName] = useState('all-star');
+  const [currentUsername, setCurrentUsername] = useState('sampleUser');
+
   return (
     <div className="App">
       <Route path='/' exact>
-      <div id='welcome'>
-          <h1 className='welcome'>Welcome!</h1>
-          <h4 className='welcome'>Please enter your name so I can sign you in:</h4>
-          <form id='name-submit' onSubmit={welcomeSubmit}>
-            <input type='text' id='name' onChange={(ev) => setName(ev.target.value)}/>
-            <br/>
-            <br/>
-            <Link to='/homepage/name'>
-              <input type='submit' id='submit-name' value='Enter'/>
-            </Link>
-          </form>
-        </div>
+        <UserEntry 
+          USER_API_URL={USER_API_URL}
+          toggleUsersFetch={toggleUsersFetch}
+          setToggleUsersFetch={setToggleUsersFetch}
+          currentUserAccountInfo={currentUserAccountInfo}
+          setCurrentUserAccountInfo={setCurrentUserAccountInfo}
+          setUsersName={setUsersName}
+          setCurrentUsername={setCurrentUsername}
+        />
       </Route>
-      <Route path='/homepage/name' exact >
-        <HomePage />
-      </Route>
-
+        <HomePage               
+          USER_API_URL={USER_API_URL}
+          TASK_API_URL={TASK_API_URL}
+          toggleTasksFetch={toggleTasksFetch}
+          setToggleTasksFetch={setToggleTasksFetch}
+          usersName={usersName}
+          currentUsername={currentUsername}
+          />
     </div>
   );
 }

@@ -8,7 +8,7 @@ import axios from 'axios';
 import DisplayTaskList from './DisplayTaskList.js';
 
 
-const HomePage = () => {
+const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersName, currentUsername}) => {
     // These set state for Add new task form
     const [task, setTask] = useState('');
     const [taskImp, setTaskImp] = useState('');
@@ -17,101 +17,101 @@ const HomePage = () => {
     const [taskEstTime, setTaskEstTime] = useState('');
 
     // This sets state of current user to use for API communication.
-    const [currentUsername, setCurrentUsername] = useState('sampleUser');
+    // const [currentUsername, setCurrentUsername] = useState('sampleUser');
 
     // These set state for user log in
-    const [logInUsername, setLogInUsername] = useState('');
-    const [logInPassword, setLogInPassword] = useState('');
+    // const [logInUsername, setLogInUsername] = useState('');
+    // const [logInPassword, setLogInPassword] = useState('');
 
-    // the state for Create New User form
-    const [usersName, setUsersName] = useState('all-star');
-    const [newUserName, setNewUserName] = useState('');
-    const [newUserPassword, setNewUserPassword] = useState('');
-    const [newUserFirstName, setNewUserFirstName] = useState('');
+    // // the state for Create New User form
+    // const [usersName, setUsersName] = useState('all-star');
+    // const [newUserName, setNewUserName] = useState('');
+    // const [newUserPassword, setNewUserPassword] = useState('');
+    // const [newUserFirstName, setNewUserFirstName] = useState('');
 
     // The state for api request response of users
-    const [usersList, setUsersList] = useState([]);
+    // const [usersList, setUsersList] = useState([]);
 
     // Toggle Fetch
-    const [toggleFetch, setToggleFetch] = useState(false);
-    const [tasksToggleFetch, setTasksToggleFetch] = useState(false);
+    // const [toggleFetch, setToggleFetch] = useState(false);
+    // const [tasksToggleFetch, setTasksToggleFetch] = useState(false);
 
     // To assign all user info to
-    const [currentUserAccountInfo, setCurrentUserAccountInfo] = useState([]);
+    // const [currentUserAccountInfo, setCurrentUserAccountInfo] = useState([]);
 
     // to assign user task array from api request
     const [userTaskArray, setUserTaskArray] = useState([])
 
 
-    const API_URL = 'https://api.airtable.com/v0/app8BFd6lNH00rllQ/Users?api_key=keyxASDYlQZpfwP0J'
-    const TASK_API_URL = 'https://api.airtable.com/v0/app8BFd6lNH00rllQ/All%20User%20Tasks?api_key=keyxASDYlQZpfwP0J';
+    // const API_URL = 'https://api.airtable.com/v0/app8BFd6lNH00rllQ/Users?api_key=keyxASDYlQZpfwP0J'
+    // const TASK_API_URL = 'https://api.airtable.com/v0/app8BFd6lNH00rllQ/All%20User%20Tasks?api_key=keyxASDYlQZpfwP0J';
 
-    const getUserInfo = async () => {
-        console.log('getting user info...');
+    // const getUserInfo = async () => {
+    //     console.log('getting user info...');
 
-        const resp = await axios.get(`${API_URL}`);
-        console.log(resp.data.records);
-        setUsersList(resp.data.records);
-        return(resp.data.records)
-    }
+    //     const resp = await axios.get(`${API_URL}`);
+    //     console.log(resp.data.records);
+    //     setUsersList(resp.data.records);
+    //     return(resp.data.records)
+    // }
 
-    useEffect(() => {
-        console.log('getting user list');
-        getUserInfo();
-        console.log(usersList)
-    }, [toggleFetch])
+    // useEffect(() => {
+    //     console.log('getting user list');
+    //     getUserInfo();
+    //     console.log(usersList)
+    // }, [toggleFetch])
 
 
-    const handleLogInSubmit = (ev) => {
-        ev.preventDefault();
-        console.log('log in attempted');
-        console.log(logInUsername);
-        let userFound = usersList.find((user, index) => {
-            if(user.fields.username === logInUsername)
-            return true;
-        });
-        console.log(userFound);
-        if (userFound.fields.password === logInPassword) {
-            console.log('passwords match')
-            setCurrentUsername(logInUsername);
-            setCurrentUserAccountInfo(userFound);
-            setUsersName(userFound.fields.firstName)
-        } else {
-            console.log("passwords don't match")
-            alert("Password is incorrect. Please try again.")
-            setLogInPassword('');
-            setCurrentUsername('');
-        }
+    // const handleLogInSubmit = (ev) => {
+    //     ev.preventDefault();
+    //     console.log('log in attempted');
+    //     console.log(logInUsername);
+    //     let userFound = usersList.find((user, index) => {
+    //         if(user.fields.username === logInUsername)
+    //         return true;
+    //     });
+    //     console.log(userFound);
+    //     if (userFound.fields.password === logInPassword) {
+    //         console.log('passwords match')
+    //         setCurrentUsername(logInUsername);
+    //         setCurrentUserAccountInfo(userFound);
+    //         setUsersName(userFound.fields.firstName)
+    //     } else {
+    //         console.log("passwords don't match")
+    //         alert("Password is incorrect. Please try again.")
+    //         setLogInPassword('');
+    //         setCurrentUsername('');
+    //     }
 
-    }
+    // }
 
-    const handleCreateAccountSubmit = (ev) => {
-        ev.preventDefault();
+    // const handleCreateAccountSubmit = (ev) => {
+    //     ev.preventDefault();
 
-        const createNewAccount = async (ev) => {
-            ev.preventDefault();
-            console.log('create account attempted');
+    //     const createNewAccount = async (ev) => {
+    //         ev.preventDefault();
+    //         console.log('create account attempted');
     
-            const newUser = {
-                records: [
-                    {
-                        fields: {
-                            username: newUserName,
-                            password: newUserPassword,
-                            firstName: newUserFirstName
-                        }
-                    }
-                ]
-            }
-            await axios.post(`${API_URL}`, newUser)
-        }
-        createNewAccount(ev);
-        setNewUserFirstName('');
-        setNewUserPassword('');
-        setNewUserName('');
-        setToggleFetch(!toggleFetch);
+    //         const newUser = {
+    //             records: [
+    //                 {
+    //                     fields: {
+    //                         username: newUserName,
+    //                         password: newUserPassword,
+    //                         firstName: newUserFirstName
+    //                     }
+    //                 }
+    //             ]
+    //         }
+    //         await axios.post(`${USER_API_URL}`, newUser)
+    //     }
+    //     createNewAccount(ev);
+    //     setNewUserFirstName('');
+    //     setNewUserPassword('');
+    //     setNewUserName('');
+    //     setToggleFetch(!toggleFetch);
 
-    }
+    // }
 
     const addNewTask = async (ev) => {
         ev.preventDefault();
@@ -196,14 +196,15 @@ const HomePage = () => {
     useEffect(() =>{
         getUsersTaskArray();
         console.log('user task array: ' + userTaskArray);
-    }, [tasksToggleFetch])
+    }, [toggleTasksFetch])
 
-    const sampleTaskArray = ['walk the dog', 'do the dishes', 'bake cookies']
+    // const sampleTaskArray = ['walk the dog', 'do the dishes', 'bake cookies']
     
 
 
     return (
         <div id='homepage' >
+            {/* <Route path='/' exact>
             <div id='user-log-in'>
                 <h1>Hello, if you have an account, click 'Log In', otherwise, click 'Create Account'...</h1>
                 <div id='user-forms'>
@@ -237,6 +238,7 @@ const HomePage = () => {
                     </form>
                 </div>
             </div>
+            </Route> */}
             <div id='greeting-tasks'>
                 <GreetingHeader
                     name={usersName}/>
@@ -257,8 +259,8 @@ const HomePage = () => {
                     setTaskEnj={setTaskEnj}
                     taskEstTime={taskEstTime}
                     setTaskEstTime={setTaskEstTime} 
-                    tasksToggleFetch={tasksToggleFetch}
-                    setTasksToggleFetch={setTasksToggleFetch}
+                    tasksToggleFetch={toggleTasksFetch}
+                    setTasksToggleFetch={setToggleTasksFetch}
                     />
                 <div id='manage-tasks'>
                     <DisplayTaskList 
