@@ -34,33 +34,18 @@ function App() {
           userIsLoggedIn={userIsLoggedIn}
           setUserIsLoggedIn={setUserIsLoggedIn}
         />}
-
-        {/* <UserEntry 
-          USER_API_URL={USER_API_URL}
-          toggleUsersFetch={toggleUsersFetch}
-          setToggleUsersFetch={setToggleUsersFetch}
-          currentUserAccountInfo={currentUserAccountInfo}
-          setCurrentUserAccountInfo={setCurrentUserAccountInfo}
-          setUsersName={setUsersName}
-          setCurrentUsername={setCurrentUsername}
-          usersName={usersName}
-          userIsLoggedIn={userIsLoggedIn}
-          setUserIsLoggedIn={setUserIsLoggedIn}
-        /> */}
     </Route>
-
-
-      <Route path='/homepage/:usersName' exact>
-        <HomePage               
-          USER_API_URL={USER_API_URL}
-          TASK_API_URL={TASK_API_URL}
-          toggleTasksFetch={toggleTasksFetch}
-          setToggleTasksFetch={setToggleTasksFetch}
-          usersName={usersName}
-          currentUsername={currentUsername}
-          />
-        </Route>
-    </div>
+    <Route path='/homepage/:usersName' exact>
+      <HomePage               
+        USER_API_URL={USER_API_URL}
+        TASK_API_URL={TASK_API_URL}
+        toggleTasksFetch={toggleTasksFetch}
+        setToggleTasksFetch={setToggleTasksFetch}
+        usersName={usersName}
+        currentUsername={currentUsername}
+        />
+    </Route>
+  </div>
   );
 }
 

@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
 
 const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurrentUserAccountInfo, currentUserAccountInfo, setUsersName, usersName, setCurrentUsername, userIsLoggedIn, setUserIsLoggedIn}) => {
 

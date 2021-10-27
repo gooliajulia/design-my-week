@@ -7,8 +7,8 @@ import FollowingDays from './FollowingDays.js';
 import axios from 'axios';
 import DisplayTaskList from './DisplayTaskList.js';
 
-
 const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersName, currentUsername}) => {
+
     // These set state for Add new task form
     const [task, setTask] = useState('');
     const [taskImp, setTaskImp] = useState('');
@@ -16,102 +16,8 @@ const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksF
     const [taskEnj, setTaskEnj] = useState('');
     const [taskEstTime, setTaskEstTime] = useState('');
 
-    // This sets state of current user to use for API communication.
-    // const [currentUsername, setCurrentUsername] = useState('sampleUser');
-
-    // These set state for user log in
-    // const [logInUsername, setLogInUsername] = useState('');
-    // const [logInPassword, setLogInPassword] = useState('');
-
-    // // the state for Create New User form
-    // const [usersName, setUsersName] = useState('all-star');
-    // const [newUserName, setNewUserName] = useState('');
-    // const [newUserPassword, setNewUserPassword] = useState('');
-    // const [newUserFirstName, setNewUserFirstName] = useState('');
-
-    // The state for api request response of users
-    // const [usersList, setUsersList] = useState([]);
-
-    // Toggle Fetch
-    // const [toggleFetch, setToggleFetch] = useState(false);
-    // const [tasksToggleFetch, setTasksToggleFetch] = useState(false);
-
-    // To assign all user info to
-    // const [currentUserAccountInfo, setCurrentUserAccountInfo] = useState([]);
-
     // to assign user task array from api request
     const [userTaskArray, setUserTaskArray] = useState([])
-
-
-    // const API_URL = 'https://api.airtable.com/v0/app8BFd6lNH00rllQ/Users?api_key=keyxASDYlQZpfwP0J'
-    // const TASK_API_URL = 'https://api.airtable.com/v0/app8BFd6lNH00rllQ/All%20User%20Tasks?api_key=keyxASDYlQZpfwP0J';
-
-    // const getUserInfo = async () => {
-    //     console.log('getting user info...');
-
-    //     const resp = await axios.get(`${API_URL}`);
-    //     console.log(resp.data.records);
-    //     setUsersList(resp.data.records);
-    //     return(resp.data.records)
-    // }
-
-    // useEffect(() => {
-    //     console.log('getting user list');
-    //     getUserInfo();
-    //     console.log(usersList)
-    // }, [toggleFetch])
-
-
-    // const handleLogInSubmit = (ev) => {
-    //     ev.preventDefault();
-    //     console.log('log in attempted');
-    //     console.log(logInUsername);
-    //     let userFound = usersList.find((user, index) => {
-    //         if(user.fields.username === logInUsername)
-    //         return true;
-    //     });
-    //     console.log(userFound);
-    //     if (userFound.fields.password === logInPassword) {
-    //         console.log('passwords match')
-    //         setCurrentUsername(logInUsername);
-    //         setCurrentUserAccountInfo(userFound);
-    //         setUsersName(userFound.fields.firstName)
-    //     } else {
-    //         console.log("passwords don't match")
-    //         alert("Password is incorrect. Please try again.")
-    //         setLogInPassword('');
-    //         setCurrentUsername('');
-    //     }
-
-    // }
-
-    // const handleCreateAccountSubmit = (ev) => {
-    //     ev.preventDefault();
-
-    //     const createNewAccount = async (ev) => {
-    //         ev.preventDefault();
-    //         console.log('create account attempted');
-    
-    //         const newUser = {
-    //             records: [
-    //                 {
-    //                     fields: {
-    //                         username: newUserName,
-    //                         password: newUserPassword,
-    //                         firstName: newUserFirstName
-    //                     }
-    //                 }
-    //             ]
-    //         }
-    //         await axios.post(`${USER_API_URL}`, newUser)
-    //     }
-    //     createNewAccount(ev);
-    //     setNewUserFirstName('');
-    //     setNewUserPassword('');
-    //     setNewUserName('');
-    //     setToggleFetch(!toggleFetch);
-
-    // }
 
     const addNewTask = async (ev) => {
         ev.preventDefault();
@@ -154,91 +60,24 @@ const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksF
     }
 
 
-    // const getUserInfo = async () => {
-    //     console.log('getting user info...');
+    useEffect(() => {
+        console.log('Getting All users tasks');
 
-    //     const resp = await axios.get(`${API_URL}`);
-    //     console.log(resp.data.records);
-    //     setUsersList(resp.data.records);
-    //     return(resp.data.records)
-    // }
-
-    // useEffect(() => {
-    //     console.log('getting user list');
-    //     getUserInfo();
-    //     console.log(usersList)
-    // }, [toggleFetch])
-
-    const getUsersTaskArray = async () => {
-        console.log('getting users task array...');
-
-        const resp = await axios.get(`${TASK_API_URL}`);
-        console.log('api fetch results: ')
-        console.log(resp.data.records);
-        const arrayOfObjects = resp.data.records;
-
-        let tempUserTaskArray = [];
-        arrayOfObjects.forEach((object) => {
-            if (object.fields.Name === currentUsername) {
-                tempUserTaskArray.push(object.fields)
-            }
-            console.log('current user task array')
-            console.log(tempUserTaskArray);
-        });
-        setUserTaskArray(tempUserTaskArray);
-        console.log('outside user task array: ');
-        console.log(userTaskArray);
-
-        return(resp.data.records);
-        
-    }
-
-    useEffect(() =>{
-        getUsersTaskArray();
-        console.log('user task array: ' + userTaskArray);
-    }, [toggleTasksFetch])
-
-    // const sampleTaskArray = ['walk the dog', 'do the dishes', 'bake cookies']
+        const getUsersTaskArray = async () => {
+            console.log('getting users task array...');
     
+            const resp = await axios.get(`${TASK_API_URL}`);
+            console.log('api fetch results: ')
+            console.log(resp.data.records);
+            setUserTaskArray(resp.data.records);
+        }
+
+        getUsersTaskArray();
+    }, [toggleTasksFetch])
 
 
     return (
         <div id='homepage' >
-            {/* <Route path='/' exact>
-            <div id='user-log-in'>
-                <h1>Hello, if you have an account, click 'Log In', otherwise, click 'Create Account'...</h1>
-                <div id='user-forms'>
-                    <form id='log-in' onSubmit={handleLogInSubmit}>
-                        <h2>Log In: </h2>
-                        <label htmlFor='username'>Username: </label>
-                        <input type='text' id='username' placeholder='username' onChange={(ev) => setLogInUsername(ev.target.value)}/>
-                        <br/>
-                        <br/>
-                        <label htmlFor='password'>Password: </label>
-                        <input type='password' placeholder='password' value={logInPassword} onChange={(ev) => setLogInPassword(ev.target.value)} />
-                        <br/>
-                        <br/>
-                        <input type='submit' />
-                    </form>
-                    <form id='create-account' onSubmit={handleCreateAccountSubmit}>
-                        <h2>Create new acount: </h2>
-                        <label htmlFor='new-user-name'>First Name: </label>
-                        <input type='text' id='new-user-name' value={newUserFirstName} placeholder='first name' onChange={(ev) => setNewUserFirstName(ev.target.value)} />
-                        <br/>
-                        <br/>
-                        <label htmlFor='create-username'>Username: </label>
-                        <input type='text' id='create-username' value={newUserName} placeholder='username' onChange={(ev) => setNewUserName(ev.target.value)}/>
-                        <br/>
-                        <br/>
-                        <label htmlFor='create-password'>Create password: </label>
-                        <input type='text' id='create-password' value={newUserPassword} placeholder='password' onChange={(ev) => setNewUserPassword(ev.target.value)}/>
-                        <br/>
-                        <br/>
-                        <input type='submit' />
-                    </form>
-                </div>
-            </div>
-            </Route> */}
             <div id='greeting-tasks'>
                 <GreetingHeader
                     name={usersName}/>
@@ -261,11 +100,19 @@ const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksF
                     setTaskEstTime={setTaskEstTime} 
                     tasksToggleFetch={toggleTasksFetch}
                     setTasksToggleFetch={setToggleTasksFetch}
+                    TASK_API_URL={TASK_API_URL}
+                    currentUsername={currentUsername}
                     />
                 <div id='manage-tasks'>
-                    <DisplayTaskList 
-                    taskArrayAll={userTaskArray}
-                    />
+                <h1>Users Task List</h1>
+                    { userTaskArray.map((taskObject) => (
+                        <DisplayTaskList 
+                            key={taskObject.id}
+                            taskArrayAll={userTaskArray}
+                            toggleTasksFetch={toggleTasksFetch}
+                            setToggleTasksFetch={setToggleTasksFetch}
+                        />
+                    ))} 
                 </div>
                 <Today />
             </div>
@@ -291,6 +138,5 @@ const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksF
 
     )
 }
-
 
 export default HomePage;
