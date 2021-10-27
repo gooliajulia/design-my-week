@@ -89,7 +89,6 @@ div#user-log-in {
   padding: 25px;
   height: 100vh;
   background-color: seashell;
-  /* gap: 50px; */
   display: flex;
   flex-direction: column;
 }
@@ -122,6 +121,16 @@ div#user-forms form {
   padding: 25px;
   display: flex;
   flex-direction: column;
+}
+
+div#user-forms form h2 {
+  align-self: flex-start;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+div#user-forms form label {
+  font-weight: 150;
 }
 
 div#user-forms input[type=text] {

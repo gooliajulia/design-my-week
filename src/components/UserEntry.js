@@ -112,9 +112,7 @@ const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurr
                         <input type='text' id='create-password' value={newUserPassword} onChange={(ev) => setNewUserPassword(ev.target.value)}/>
                         <br/>
                         <br/>
-                        <Link to='./homepage/'>
                         <input type='submit' />
-                        </Link>
                     </form>
                 </div>
             </div>
