@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
-const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurrentUserAccountInfo, currentUserAccountInfo, setUsersName, usersName, setCurrentUsername}) => {
+const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurrentUserAccountInfo, currentUserAccountInfo, setUsersName, usersName, setCurrentUsername, userIsLoggedIn, setUserIsLoggedIn}) => {
 
     const [logInUsername, setLogInUsername] = useState('');
     const [logInPassword, setLogInPassword] = useState('');
@@ -55,12 +55,15 @@ const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurr
             setCurrentUsername(logInUsername);
             setCurrentUserAccountInfo(userFound);
             setUsersName(userFound.fields.firstName)
+            setUserIsLoggedIn(true);
         } else {
             console.log("passwords don't match")
             alert("Password is incorrect. Please try again.")
             setLogInPassword('');
             setCurrentUsername('');
+            setUserIsLoggedIn(false);
         }
+        console.log(userIsLoggedIn)
     }
 
     const getUserInfo = async () => {
@@ -94,9 +97,9 @@ const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurr
                         <br/>
                         <br/>
                         <br/>
-                        <Link to={`./homepage/${usersName}`}>
+                        {/* <Link to={`./homepage/${usersName}`}> */}
                             <input type='submit' />
-                        </Link>
+                        {/* </Link> */}
                     </form>
                     <form id='create-account' onSubmit={handleCreateAccountSubmit}>
                         <h2>Create new acount: </h2>
