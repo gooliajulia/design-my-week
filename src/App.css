@@ -145,7 +145,7 @@ div#user-forms input[type=password] {
 
 div#greeting-header {
   /* height: 270px; */
-  height:100px;
+  height:max-content;
   width: 55vw;
   padding: 25px;
   background-color: seashell;
