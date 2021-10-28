@@ -79,6 +79,7 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
                         toggleTasksFetch={toggleTasksFetch}
                         setToggleTasksFetch={setToggleTasksFetch}
                         currentUsername={currentUsername}
+                        TASK_API_URL={TASK_API_URL}
                     />
                 </div>
             :

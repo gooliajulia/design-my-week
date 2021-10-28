@@ -1,7 +1,7 @@
 import useState from 'react';
 import DisplayCard from './DisplayCard.js';
 
-const DisplayTaskList = ({taskArrayAll, currentUsername}) => {
+const DisplayTaskList = ({taskArrayAll, currentUsername, TASK_API_URL}) => {
 
     return (
         <div id='display-cards'>
@@ -15,6 +15,8 @@ const DisplayTaskList = ({taskArrayAll, currentUsername}) => {
                     taskUrgency={task.fields.importance}
                     taskEnjoyment={task.fields.enjoyment}
                     taskTimeEst={task.fields.minutes}
+                    taskID={task.id}
+                    TASK_API_URL={TASK_API_URL}
                     />
                 </div>
                 :

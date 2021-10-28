@@ -290,6 +290,15 @@ div#display-cards {
   flex-wrap: wrap;
 }
 
+button.delete {
+  background-color: rgb(133, 157, 161);
+  width: 20px;
+  height: 20px;
+  border-style: none;
+  border-radius: 25px;
+  margin-left: 175px; 
+}
+
 div#task-display {
   margin-right:25px;
 }
