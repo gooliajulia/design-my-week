@@ -1,4 +1,3 @@
-
 import HomePage from './components/pages/Homepage.js'
 import './App.css';
 import {Route, Redirect} from 'react-router-dom';
@@ -6,7 +5,6 @@ import {useState} from 'react';
 import UserEntry from './components/pages/UserEntry.js'
 import Reflections from './components/pages/Reflections.js';
 import Nav from './components/sections/Nav.js';
-import DisplayCard from './components/displays/DisplayCard.js';
 
 console.log(process.env.REACT_APP_API_KEY)
 
@@ -44,7 +42,6 @@ function App() {
     </Route>
     <Route path='/homepage/:usersName' exact>
       <HomePage               
-        USER_API_URL={USER_API_URL}
         TASK_API_URL={TASK_API_URL}
         toggleTasksFetch={toggleTasksFetch}
         setToggleTasksFetch={setToggleTasksFetch}
@@ -55,12 +52,9 @@ function App() {
     <Route path='/reflections' >
       <Reflections />
     </Route>
-    <Route path='/manage-tasks/:username'>
-      <div>
-        <DisplayCard 
-        type='task'/>
-      </div>
-    </Route>
+    <footer>
+
+    </footer>
   </div>
   );
 }

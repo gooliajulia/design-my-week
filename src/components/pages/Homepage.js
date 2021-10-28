@@ -5,11 +5,10 @@ import Habits from '../sections/Habits.js';
 import MyTasks from '../sections/MyTasks.js';
 import FollowingDays from '../displays/FollowingDays.js';
 import axios from 'axios';
-import DisplayTaskList from '../displays/DisplayTaskList.js';
-import {Route} from 'react-router-dom';
-import DisplayCard from '../displays/DisplayCard.js';
 
-const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersName, currentUsername}) => {
+const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersName, currentUsername}) => {
+    console.log(currentUsername);
+    console.log(TASK_API_URL);
 
     // These set state for Add new task form
     const [task, setTask] = useState('');
@@ -17,9 +16,11 @@ const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksF
     const [taskUrg, setTaskUrg] = useState('');
     const [taskEnj, setTaskEnj] = useState('');
     const [taskEstTime, setTaskEstTime] = useState('');
+    const [toggleFilter, setToggleFilter] = useState(false);
 
     // to assign user task array from api request
     const [userTaskArray, setUserTaskArray] = useState([])
+    const [currentUserTaskArray, setCurrentUserTaskArray] = useState([]);
 
     const addNewTask = async (ev) => {
         ev.preventDefault();
@@ -65,44 +66,50 @@ const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksF
     useEffect(() => {
         console.log('Getting All users tasks');
 
+        const user = {
+            records: [
+                {
+                    fields: {
+                        Name: `${currentUsername}`
+                    }
+                }
+            ]
+        }
+
         const getUsersTaskArray = async () => {
             console.log('getting users task array...');
     
-            const resp = await axios.get(`${TASK_API_URL}`);
+            const resp = await axios.get(`${TASK_API_URL}`, user);
             console.log('api fetch results: ')
             console.log(resp.data.records);
             setUserTaskArray(resp.data.records);
         }
 
         getUsersTaskArray();
+        setToggleFilter(!toggleFilter);
     }, [toggleTasksFetch])
+
+    useEffect(() => {
+        console.log('filtering tasks');
+        console.log(userTaskArray);
+        let filteredArray = [];
+        userTaskArray.forEach((task) => {
+            if (task.fields.Name === currentUsername) {
+                filteredArray.push(task);
+            }
+        })
+        console.log(filteredArray)
+        setCurrentUserTaskArray(filteredArray);
+        console.log(currentUserTaskArray);
+    }, [toggleFilter])
 
 
     return (
         <div id='homepage' >
-            <div id='greeting-tasks'>
+            <div>
+            </div>
                 <GreetingHeader
                     name={usersName}/>
-                {/* <MyTasks
-                    addNewTask={addNewTask}
-                    task={task}
-                    setTask={setTask}
-                    taskImp={taskImp}
-                    setTaskImp={setTaskImp}
-                    taskUrg={taskUrg} 
-                    setTaskUrg={setTaskUrg}
-                    taskEnj={taskEnj} 
-                    setTaskEnj={setTaskEnj}
-                    taskEstTime={taskEstTime}
-                    setTaskEstTime={setTaskEstTime} 
-                    tasksToggleFetch={toggleTasksFetch}
-                    setTasksToggleFetch={setToggleTasksFetch}
-                    TASK_API_URL={TASK_API_URL}
-                    currentUsername={currentUsername}
-                    userTaskArray={userTaskArray}
-                    toggleTasksFetch={toggleTasksFetch}
-                    setToggleTasksFetch={setToggleTasksFetch}/> */}
-            </div>
             <div id='task-display'>
             <MyTasks
                     addNewTask={addNewTask}
@@ -122,7 +129,10 @@ const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksF
                     currentUsername={currentUsername}
                     userTaskArray={userTaskArray}
                     toggleTasksFetch={toggleTasksFetch}
-                    setToggleTasksFetch={setToggleTasksFetch}/>
+                    setToggleTasksFetch={setToggleTasksFetch}
+                    setToggleFilter={setToggleFilter}
+                    toggleFilter={setToggleFilter}
+                    currentUserTaskArray={currentUserTaskArray}/>
             </div>
             <div id='habits-today'>
                 <Habits />

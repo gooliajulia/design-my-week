@@ -3,7 +3,7 @@ import axios from "axios"
 
 const DisplayCard = ({type, taskName, taskImportance, taskUrgency, taskTimeEst, taskEnjoyment, taskID, TASK_API_URL}) => {
     const ifTask = ['task', 'importance', 'urgency', 'enjoyment', 'estimated time to complete']
-    const ifRecipe = ['name', 'ingredients', 'directions']
+    // const ifRecipe = ['name', 'ingredients', 'directions']
 
     // Alternatively, we could try and use Class here. 
 

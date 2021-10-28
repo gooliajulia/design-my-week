@@ -6,7 +6,7 @@ const WarmupButton = ({title, source}) => {
     const handleClick = (ev) => {
         ev.preventDefault();
         window.open(source);
-        setButtonColor('rgb(155, 103, 94)');
+        setButtonColor('rgb(150, 95, 95)');
     }
 
     return (

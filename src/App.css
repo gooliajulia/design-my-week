@@ -8,17 +8,17 @@ div#App {
 
 div#nav-bar {
   height: 40px;
-  padding: 10px;
+  padding-left: 20px;
+  padding-right: 40px;
   /* padding-left: 25px; */
   background-color: seashell;
   display: flex;
-  justify-content: flex-start;
+  justify-content:space-between;
   column-gap: 35px;
 }
 
 a.nav {
   text-decoration: none;
-  color: black;
 }
 
 a:visited {
@@ -31,11 +31,14 @@ div#nav-bar h3 {
   margin-left: 25px;
   margin-top: 7px;
   font-weight: 500;
-  color: rgb(141, 108, 100)
+  color: black;
+  font-family: 'PT Serif', serif;
+  font-weight: 100;
 }
 
 div#nav-bar h3:hover {
   color: black;
+
 }
 
 /* --------- Welcome Page ---------- */
@@ -169,7 +172,7 @@ div#user-forms input[type=password] {
 div#greeting-header {
   /* height: 270px; */
   height:max-content;
-  width: 40vw;
+  width: 90vw;
   padding: 25px;
   background-color: seashell;
   border-radius: 25px;
@@ -177,6 +180,7 @@ div#greeting-header {
   margin-top: 25px;
   margin-left: 25px;
   margin-bottom: 25px;
+  margin-right: 25px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -193,15 +197,6 @@ div#warmups button {
   border-radius: 25px;
   border-style: none;
   background-color: seashell;
-}
-
-/* div#warmups button#add {
-  width: 50px;
-} */
-
-
-div#greeting-tasks {
-  display: flex;
 }
 
 input[type=text] {
@@ -237,19 +232,19 @@ input#task {
 }
 
 input#importance {
-  width: 210px;
+  width: 156px;
 }
 
 input#urgency {
-  width: 190px;
+  width: 130px;
 }
 
 input#enjoyment {
-  width: 240px;
+  width: 107px;
 }
 
 input#time-est {
-  width: 315px;
+  width: 180px;
 }
 
 div#habits-today {
@@ -270,9 +265,8 @@ div#habits {
 
 div#my-tasks {
   height:fit-content;
-  width: 37vw;
+  width: 90vw;
   padding: 25px;
-  margin-top: 25px;
   margin-left: 25px;
   margin-bottom: 25px;
   margin-right: 25px;
@@ -282,6 +276,10 @@ div#my-tasks {
   background-color: rgb(255, 245, 238);
   display: flex;
   flex-direction: column;
+}
+
+div#tasks-and-add {
+  display: flex;
 }
 
 div#display-cards {
@@ -297,15 +295,6 @@ button.delete {
   border-style: none;
   border-radius: 25px;
   margin-left: 175px; 
-}
-
-div#task-display {
-  margin-right:25px;
-}
-
-div#my-tasks {
-  width: 87vw;
-  margin-right: 25px;
 }
 
 h1.my-tasks {
@@ -339,7 +328,8 @@ div#add-new-task-form {
   padding: 30px;
   margin-top: 25px;
   border-style: solid;
-  width:min-content;
+  width: 200px;
+  height: 285px;
   border-radius: 25px;
   border-color:rgb(243, 230, 217);
   background-color: seashell;
@@ -374,7 +364,7 @@ div#manage-tasks h4 {
 
 div#today {
   background-color:seashell ;
-  width: 60vw;
+  width: 30vw;
   height: 510px;
   margin-left: 25px;
   margin-right: 25px;
@@ -410,8 +400,6 @@ div#warmups {
   align-content:space-around;
   gap: 10px;
 }
-
-
 
 div#following-days-display {
   display: flex;
@@ -459,4 +447,9 @@ div.display-card h2 {
 
 div.display-card h3 {
   font-weight: 200;
+}
+
+footer {
+  height: 35px;
+  background-color: seashell;
 }

@@ -1,17 +1,12 @@
 import AddTaskForm from '../forms/AddTaskForm.js';
 import {useState} from 'react';
 import DisplayTaskList from '../displays/DisplayTaskList.js';
-import axios from 'axios';
-import DisplayCard from '../displays/DisplayCard.js';
 
 
-const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTaskUrg, taskEnj, setTaskEnj, taskEstTime, setTaskEstTime, TASK_API_URL, currentUsername, userTaskArray, toggleTasksFetch, setToggleTasksFetch}) => {
+const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTaskUrg, taskEnj, setTaskEnj, taskEstTime, setTaskEstTime, TASK_API_URL, currentUsername, userTaskArray, toggleTasksFetch, setToggleTasksFetch, setToggleFilter, toggleFilter, currentUserTaskArray}) => {
 
     const [quickAddToggle, setQuickAddToggle] = useState(false);
     const [quickAddButtonText, setQuickAddButtonText] = useState('Quick Add +')
-    const [displayTasksToggle, setDisplayTasksToggle] = useState(false);
-    const [taskArrayAll, setTaskArrayAll] = useState([]);
-    const [currentUsersTaskArray, setCurrentUsersTaskArray] = useState([]);
     const [manageTasksToggle, setManageTasksToggle] = useState(false);
 
     const quickAdd = () => {
@@ -20,32 +15,11 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
         quickAddToggle ?  setQuickAddButtonText('Quick Add +') : setQuickAddButtonText('Hide Quick Add') ;
     }
 
-    const getUsersTaskArray = async () => {
-        console.log("getting user's task array...");
-
-        const resp = await axios.get(`${TASK_API_URL}`);
-        console.log(resp.data.records);
-        setTaskArrayAll(resp.data.records);
-
-        let foundUsersTaskArray = [];
-
-        taskArrayAll.forEach((taskObject) => {
-            if(taskObject.fields.Name === currentUsername) {
-                foundUsersTaskArray.push(taskObject.fields)
-            }
-            console.log(foundUsersTaskArray)
-            // setCurrentUsersTaskArray(foundUsersTaskArray);
-        })
-        setCurrentUsersTaskArray(foundUsersTaskArray);
-        console.log('found users task array');
-        console.log(currentUsersTaskArray);
-
-        return(resp.data.records);
-    }
-
     const manageTasks = () => {
         console.log('manage tasks button clicked');
+        setToggleTasksFetch(!toggleTasksFetch);
         setManageTasksToggle(!manageTasksToggle);
+        setToggleFilter(!toggleFilter);
     }
 
 
@@ -56,6 +30,7 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
                 <button id='quick-add' className={ quickAddToggle ? 'show' : 'no-show'} onClick={quickAdd} >{quickAddButtonText}</button>
                 <button id='manage-tasks' onClick={manageTasks}>Manage Tasks</button>
             </div>
+            <div id='tasks-and-add'>
             { quickAddToggle ? 
                         <AddTaskForm 
                         addNewTask={addNewTask}
@@ -72,7 +47,6 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
                     />
             : null}
             { manageTasksToggle ? 
-                <div>
                     <DisplayTaskList 
                         key={userTaskArray.id}
                         taskArrayAll={userTaskArray}
@@ -80,12 +54,11 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
                         setToggleTasksFetch={setToggleTasksFetch}
                         currentUsername={currentUsername}
                         TASK_API_URL={TASK_API_URL}
+                        currentUserTaskArray={currentUserTaskArray}
                     />
-                </div>
             :
             null}
-
-
+            </div>
         </div>
     )
 }

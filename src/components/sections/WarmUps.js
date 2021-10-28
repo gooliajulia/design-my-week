@@ -35,8 +35,9 @@ const WarmUps = () => {
 
     return (
         <div id='warmups'>
-            {WarmupsArray.map((warmupObject) => (
+            {WarmupsArray.map((warmupObject, idx) => (
                 <WarmupButton 
+                    key={idx}
                     title={warmupObject.title}
                     source={warmupObject.source}
                 />
