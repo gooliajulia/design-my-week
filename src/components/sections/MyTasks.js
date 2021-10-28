@@ -56,21 +56,6 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
                 <button id='quick-add' className={ quickAddToggle ? 'show' : 'no-show'} onClick={quickAdd} >{quickAddButtonText}</button>
                 <button id='manage-tasks' onClick={manageTasks}>Manage Tasks</button>
             </div>
-            { manageTasksToggle ? 
-                <div>
-                    <DisplayTaskList 
-                        key={userTaskArray.id}
-                        taskArrayAll={userTaskArray}
-                        toggleTasksFetch={toggleTasksFetch}
-                        setToggleTasksFetch={setToggleTasksFetch}
-                        currentUsername={currentUsername}
-                    />
-                    <DisplayCard 
-                    type='task'/>
-                </div>
-            :
-            null}
-
             { quickAddToggle ? 
                         <AddTaskForm 
                         addNewTask={addNewTask}
@@ -86,6 +71,20 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
                         setTaskEstTime={setTaskEstTime}
                     />
             : null}
+            { manageTasksToggle ? 
+                <div>
+                    <DisplayTaskList 
+                        key={userTaskArray.id}
+                        taskArrayAll={userTaskArray}
+                        toggleTasksFetch={toggleTasksFetch}
+                        setToggleTasksFetch={setToggleTasksFetch}
+                        currentUsername={currentUsername}
+                    />
+                </div>
+            :
+            null}
+
+
         </div>
     )
 }

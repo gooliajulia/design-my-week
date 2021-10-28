@@ -284,6 +284,12 @@ div#my-tasks {
   flex-direction: column;
 }
 
+div#display-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 div#task-display {
   margin-right:25px;
 }
