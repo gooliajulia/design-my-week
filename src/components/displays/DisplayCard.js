@@ -30,7 +30,7 @@ const DisplayCard = ({type, taskName, taskImportance, taskUrgency, taskTimeEst, 
             <h3>{ifTask[1]}: {taskImportance}</h3>
             <h3>{ifTask[2]}: {taskUrgency}</h3>
             <h3>{ifTask[3]}: {taskEnjoyment}</h3>
-            <h3>{ifTask[4]}: {taskTimeEst}</h3>
+            <h3>{ifTask[4]}: {taskTimeEst} minutes</h3>
 
         </div>
     )

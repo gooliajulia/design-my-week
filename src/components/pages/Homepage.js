@@ -184,7 +184,7 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
                     designMyWeek={designMyWeek}/>
             </div>
             <div id='habits-today'>
-            <button id='design-my-week' onClick={designMyWeek}>Design My Week</button>
+            {/* <button id='design-my-week' onClick={designMyWeek}>Design My Week</button> */}
                 <Habits />
                 <Today 
                 days={days}
@@ -200,15 +200,15 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
             <div id='following-days-display'>
                 <FollowingDays 
                 day={days[weekDay+1]}
-                tasksArray={rankedTaskArray.slice(5,11)}
+                tasksArray={rankedTaskArray.slice(5,10)}
             />
                         <FollowingDays 
                 day={days[weekDay+2]}
-                tasksArray={rankedTaskArray.slice(11,17)}
+                tasksArray={rankedTaskArray.slice(10,15)}
             />
                         <FollowingDays 
                 day={days[weekDay+3]}
-                tasksArray={rankedTaskArray.slice(17,23)}
+                tasksArray={rankedTaskArray.slice(15,20)}
             />
                         <FollowingDays 
                 day={days[weekDay+4]}
