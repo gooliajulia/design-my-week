@@ -398,8 +398,8 @@ div#manage-tasks h4 {
 
 div#today {
   background-color:seashell ;
-  width: 38vw;
-  height: 410px;
+  width:fit-content;
+  height:fit-content;
   margin-left: 25px;
   margin-right: 25px;
   border-radius: 20px;
@@ -408,16 +408,33 @@ div#today {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding: 25px;
+}
+
+div#today div.inline-habit {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
 }
 
 h1.today {
-  margin-left: 25px;
+  margin-top:0px;
   margin-bottom: 0px;
 }
 
 h2.today {
-  margin-left: 25px;
-  margin-top: 5px;
+  margin-top: 0px;
+}
+
+div#today h3 {
+  font-weight: 300;
+  margin-top: 3px;
+}
+
+div#today h4 {
+  margin-bottom: 9px;
+  margin-top: 0px;
+  font-weight: 200;
 }
 
 div#warmups {

@@ -11,6 +11,15 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
     console.log(currentUsername);
     console.log(TASK_API_URL);
 
+    const d = new Date();
+    let weekDay = d.getDay();
+    let month = d.getMonth();
+    let day = d.getDate();
+    let year = d.getFullYear();
+    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday']
+    const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
+
+
     // These set state for Add new task form
     const [task, setTask] = useState('');
     const [taskImp, setTaskImp] = useState('');
@@ -133,28 +142,36 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
                     setToggleTasksFetch={setToggleTasksFetch}
                     setToggleFilter={setToggleFilter}
                     toggleFilter={setToggleFilter}
-                    currentUserTaskArray={currentUserTaskArray}/>
+                    currentUserTaskArray={currentUserTaskArray}
+                    setCurrentUserTaskArray={setCurrentUserTaskArray}/>
             </div>
             <div id='habits-today'>
                 <Habits />
-                <Today />
+                <Today 
+                days={days}
+                weekDay={weekDay}
+                months={months}
+                month={month}
+                day={day}
+                year={year}
+                />
                 <NotePad />
             </div>
             <div id='following-days-display'>
                 <FollowingDays 
-                day={'Tuesday'}
+                day={days[weekDay+1]}
                 tasksArray={['pay the bills', 'walk the dog', 'code some sick shit', 'pedicure', 'do the dishes']}
             />
                         <FollowingDays 
-                day={'Wednesday'}
+                day={days[weekDay+2]}
                 tasksArray={['pay the bills', 'walk the dog', 'code some sick shit', 'pedicure', 'do the dishes']}
             />
                         <FollowingDays 
-                day={'Thursday'}
+                day={days[weekDay+3]}
                 tasksArray={['pay the bills', 'walk the dog', 'code some sick shit', 'pedicure', 'do the dishes']}
             />
                         <FollowingDays 
-                day={'Friday'}
+                day={days[weekDay+4]}
                 tasksArray={['pay the bills', 'walk the dog', 'code some sick shit', 'pedicure', 'do the dishes']}
             />
             </div>

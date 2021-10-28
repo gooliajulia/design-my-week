@@ -1,11 +1,14 @@
 
+import { useEffect, useState } from 'react';
 import DisplayCard from './DisplayCard.js';
 
-const DisplayTaskList = ({ currentUsername, TASK_API_URL, currentUserTaskArray}) => {
+const DisplayTaskList = ({ currentUsername, TASK_API_URL, currentUserTaskArray, setCurrentUserTaskArray, setToggleTasksFetch, toggleTasksFetch, setManageTasksToggle, manageTasksToggle, setToggleFilter, toggleFilter}) => {
+
+
 
     return (
         <div id='display-cards'>
-                {currentUserTaskArray.map((task) => (
+                { currentUserTaskArray.map((task) => (
                     <DisplayCard 
                         type={'task'}
                         taskName={task.fields.task}
@@ -15,8 +18,14 @@ const DisplayTaskList = ({ currentUsername, TASK_API_URL, currentUserTaskArray})
                         taskTimeEst={task.fields.minutes}
                         taskID={task.id}
                         TASK_API_URL={TASK_API_URL}
+                        setToggleTasksFetch={setToggleTasksFetch}
+                        toggleTasksFetch={toggleTasksFetch}
+                        setManageTasksToggle={setManageTasksToggle}
+                        manageTasksToggle={manageTasksToggle}
+                        setToggleFilter={setToggleFilter}
+                        toggleFilter={toggleFilter}
                     />
-                ))}
+                )) }
         </div>
     )
 }

@@ -3,7 +3,7 @@ import {useState} from 'react';
 import DisplayTaskList from '../displays/DisplayTaskList.js';
 
 
-const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTaskUrg, taskEnj, setTaskEnj, taskEstTime, setTaskEstTime, TASK_API_URL, currentUsername, userTaskArray, toggleTasksFetch, setToggleTasksFetch, setToggleFilter, toggleFilter, currentUserTaskArray}) => {
+const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTaskUrg, taskEnj, setTaskEnj, taskEstTime, setTaskEstTime, TASK_API_URL, currentUsername, userTaskArray, toggleTasksFetch, setToggleTasksFetch, setToggleFilter, toggleFilter, currentUserTaskArray, setCurrentUserTaskArray}) => {
 
     const [quickAddToggle, setQuickAddToggle] = useState(false);
     const [quickAddButtonText, setQuickAddButtonText] = useState('Quick Add +')
@@ -24,6 +24,23 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
 
     const designMyWeek = () => {
         console.log('designing your week');
+        /*
+        1. take currentUserTaskArray
+        2. make a new array to work with that consists the objects of each task, the ratings parseInted and a new property of 'rank'
+        NOTE: to start, simply rank the items and disregard timing. Assign them to days in groups of 5, Most important, 2 next important 2 extras.
+            for tasks that take longer than 45 minutes, break up into two new tasks. (if less than 60 minutes, 45 and 15, if less than 75, 45 and 30 etc. if 90, 45 and 45 and so on.)
+        3. Sort the array by rank
+        4. Assign as follows:
+            Today: first 5
+            Next Day: next 5
+            Next Next Day: next 5
+            ... etc.
+        
+
+
+
+
+        */
     }
 
 
@@ -60,6 +77,11 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
                         currentUsername={currentUsername}
                         TASK_API_URL={TASK_API_URL}
                         currentUserTaskArray={currentUserTaskArray}
+                        setManageTasksToggle={setManageTasksToggle}
+                        manageTasksToggle={manageTasksToggle}
+                        setToggleFilter={setToggleFilter}
+                        toggleFilter={toggleFilter}
+                        setCurrentUserTaskArray={setCurrentUserTaskArray}
                     />
             :
             null}
