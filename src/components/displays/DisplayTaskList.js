@@ -1,4 +1,5 @@
 import useState from 'react';
+import DisplayCard from './DisplayCard.js';
 
 const DisplayTaskList = ({taskArrayAll, currentUsername}) => {
 
@@ -6,7 +7,16 @@ const DisplayTaskList = ({taskArrayAll, currentUsername}) => {
         <div>
             {taskArrayAll.map((task) => {
                 return task.fields.Name === currentUsername ?
-                <h4>- {task.fields.task}</h4>
+                <div>
+                    <DisplayCard 
+                    type={'task'}
+                    taskName={task.fields.task}
+                    taskImportance={task.fields.importance}
+                    taskUrgency={task.fields.importance}
+                    taskEnjoyment={task.fields.enjoyment}
+                    taskTimeEst={task.fields.minutes}
+                    />
+                </div>
                 :
                 null
                 

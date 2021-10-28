@@ -2,6 +2,7 @@ import AddTaskForm from '../forms/AddTaskForm.js';
 import {useState} from 'react';
 import DisplayTaskList from '../displays/DisplayTaskList.js';
 import axios from 'axios';
+import DisplayCard from '../displays/DisplayCard.js';
 
 
 const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTaskUrg, taskEnj, setTaskEnj, taskEstTime, setTaskEstTime, TASK_API_URL, currentUsername, userTaskArray, toggleTasksFetch, setToggleTasksFetch}) => {
@@ -56,13 +57,17 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
                 <button id='manage-tasks' onClick={manageTasks}>Manage Tasks</button>
             </div>
             { manageTasksToggle ? 
-                <DisplayTaskList 
-                key={userTaskArray.id}
-                taskArrayAll={userTaskArray}
-                toggleTasksFetch={toggleTasksFetch}
-                setToggleTasksFetch={setToggleTasksFetch}
-                currentUsername={currentUsername}
-                />
+                <div>
+                    <DisplayTaskList 
+                        key={userTaskArray.id}
+                        taskArrayAll={userTaskArray}
+                        toggleTasksFetch={toggleTasksFetch}
+                        setToggleTasksFetch={setToggleTasksFetch}
+                        currentUsername={currentUsername}
+                    />
+                    <DisplayCard 
+                    type='task'/>
+                </div>
             :
             null}
 

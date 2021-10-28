@@ -83,7 +83,28 @@ const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksF
             <div id='greeting-tasks'>
                 <GreetingHeader
                     name={usersName}/>
-                <MyTasks
+                {/* <MyTasks
+                    addNewTask={addNewTask}
+                    task={task}
+                    setTask={setTask}
+                    taskImp={taskImp}
+                    setTaskImp={setTaskImp}
+                    taskUrg={taskUrg} 
+                    setTaskUrg={setTaskUrg}
+                    taskEnj={taskEnj} 
+                    setTaskEnj={setTaskEnj}
+                    taskEstTime={taskEstTime}
+                    setTaskEstTime={setTaskEstTime} 
+                    tasksToggleFetch={toggleTasksFetch}
+                    setTasksToggleFetch={setToggleTasksFetch}
+                    TASK_API_URL={TASK_API_URL}
+                    currentUsername={currentUsername}
+                    userTaskArray={userTaskArray}
+                    toggleTasksFetch={toggleTasksFetch}
+                    setToggleTasksFetch={setToggleTasksFetch}/> */}
+            </div>
+            <div id='task-display'>
+            <MyTasks
                     addNewTask={addNewTask}
                     task={task}
                     setTask={setTask}
