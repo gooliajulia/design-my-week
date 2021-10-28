@@ -1,11 +1,12 @@
 
-import HomePage from './components/Homepage.js'
+import HomePage from './components/pages/Homepage.js'
 import './App.css';
 import {Route, Redirect} from 'react-router-dom';
 import {useState} from 'react';
-import UserEntry from './components/UserEntry.js'
-import Reflections from './components/Reflections.js';
-import Nav from './components/Nav.js';
+import UserEntry from './components/pages/UserEntry.js'
+import Reflections from './components/pages/Reflections.js';
+import Nav from './components/sections/Nav.js';
+import DisplayCard from './components/displays/DisplayCard.js';
 
 console.log(process.env.REACT_APP_API_KEY)
 
@@ -27,7 +28,8 @@ function App() {
         <Nav />
       </Route>
       <Route path='/' exact>
-        { userIsLoggedIn ? <Redirect to={`/homepage/${usersName}`} /> :         <UserEntry 
+        { userIsLoggedIn ? <Redirect to={`/homepage/${usersName}`} /> :         
+        <UserEntry 
           USER_API_URL={USER_API_URL}
           toggleUsersFetch={toggleUsersFetch}
           setToggleUsersFetch={setToggleUsersFetch}
@@ -52,6 +54,12 @@ function App() {
     </Route>
     <Route path='/reflections' >
       <Reflections />
+    </Route>
+    <Route path='/manage-tasks/:username'>
+      <div>
+        <DisplayCard 
+        type='task'/>
+      </div>
     </Route>
   </div>
   );

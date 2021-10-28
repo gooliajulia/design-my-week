@@ -1,6 +1,6 @@
-import AddTaskForm from './AddTaskForm.js';
+import AddTaskForm from '../forms/AddTaskForm.js';
 import {useState} from 'react';
-import DisplayTaskList from './DisplayTaskList.js';
+import DisplayTaskList from '../displays/DisplayTaskList.js';
 import axios from 'axios';
 
 

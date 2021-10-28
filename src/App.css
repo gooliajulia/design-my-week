@@ -9,7 +9,7 @@ div#App {
 div#nav-bar {
   height: 40px;
   padding: 10px;
-  padding-left: 25px;
+  /* padding-left: 25px; */
   background-color: seashell;
   display: flex;
   justify-content: flex-start;
@@ -28,6 +28,7 @@ a:visited {
 
 div#nav-bar h3 {
   margin: 0px;
+  margin-left: 25px;
   margin-top: 7px;
   font-weight: 500;
   color: rgb(141, 108, 100)
@@ -168,7 +169,7 @@ div#user-forms input[type=password] {
 div#greeting-header {
   /* height: 270px; */
   height:max-content;
-  width: 55vw;
+  width: 40vw;
   padding: 25px;
   background-color: seashell;
   border-radius: 25px;
@@ -194,15 +195,14 @@ div#warmups button {
   background-color: seashell;
 }
 
-button.darker {
-  background-color: rgb(155, 103, 94);
-}
+/* div#warmups button#add {
+  width: 50px;
+} */
+
 
 div#greeting-tasks {
   display: flex;
 }
-
-
 
 input[type=text] {
   font-family: 'PT Serif', serif;
@@ -260,20 +260,22 @@ div#habits-today {
 div#habits {
   background-color: seashell;
   width: 200px;
-  margin: 25px;
+  margin-left: 25px;
   border-radius: 25px;
   border-style: solid;
   border-color: rgb(243, 230, 217);
   height: 100px;
-  padding: 25px;
+  padding-left: 25px;
 }
 
 div#my-tasks {
   height:fit-content;
-  width: 390px;
+  width: 37vw;
   padding: 25px;
+  margin-top: 25px;
   margin-left: 25px;
   margin-bottom: 25px;
+  margin-right: 25px;
   border-style: solid;
   border-color:rgb(243, 230, 217);
   border-radius: 25px;
@@ -412,4 +414,25 @@ div.day-display h2 {
 
 div.day-display li {
   font-size: 15px;
+}
+
+div.display-card {
+  background-color: rgb(175, 199, 197);
+  width: 200px;
+  height:max-content;
+  border-style: solid;
+  border-radius: 25px;
+  border-color: seashell;
+  margin-top: 25px;
+  margin-left: 25px;
+  padding: 25px;
+}
+
+div.display-card h2 {
+  margin-top: 0px;
+  font-weight: 300;
+}
+
+div.display-card h3 {
+  font-weight: 200;
 }

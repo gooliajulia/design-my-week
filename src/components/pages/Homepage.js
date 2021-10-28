@@ -1,11 +1,13 @@
-import GreetingHeader from './GreetingHeader.js'
-import Today from './Today.js'
+import GreetingHeader from '../sections/GreetingHeader.js'
+import Today from '../sections/Today.js'
 import {useEffect, useState} from 'react';
-import Habits from './Habits.js';
-import MyTasks from './MyTasks.js';
-import FollowingDays from './FollowingDays.js';
+import Habits from '../sections/Habits.js';
+import MyTasks from '../sections/MyTasks.js';
+import FollowingDays from '../displays/FollowingDays.js';
 import axios from 'axios';
-import DisplayTaskList from './DisplayTaskList.js';
+import DisplayTaskList from '../displays/DisplayTaskList.js';
+import {Route} from 'react-router-dom';
+import DisplayCard from '../displays/DisplayCard.js';
 
 const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersName, currentUsername}) => {
 
@@ -81,11 +83,6 @@ const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksF
             <div id='greeting-tasks'>
                 <GreetingHeader
                     name={usersName}/>
-                <Habits />
-            </div>
-            <div id='my-tasks-management'>
-            </div>
-            <div id='habits-today'>
                 <MyTasks
                     addNewTask={addNewTask}
                     task={task}
@@ -104,19 +101,10 @@ const HomePage = ({USER_API_URL, TASK_API_URL, toggleTasksFetch, setToggleTasksF
                     currentUsername={currentUsername}
                     userTaskArray={userTaskArray}
                     toggleTasksFetch={toggleTasksFetch}
-                    setToggleTasksFetch={setToggleTasksFetch}
-                    />
-
-                <div id='manage-tasks'>
-                <h1>Users Task List</h1>
-                        <DisplayTaskList 
-                            key={userTaskArray.id}
-                            taskArrayAll={userTaskArray}
-                            toggleTasksFetch={toggleTasksFetch}
-                            setToggleTasksFetch={setToggleTasksFetch}
-                            currentUsername={currentUsername}
-                        />
-                </div>
+                    setToggleTasksFetch={setToggleTasksFetch}/>
+            </div>
+            <div id='habits-today'>
+                <Habits />
                 <Today />
             </div>
             <div id='following-days-display'>
