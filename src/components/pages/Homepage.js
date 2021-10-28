@@ -5,6 +5,7 @@ import Habits from '../sections/Habits.js';
 import MyTasks from '../sections/MyTasks.js';
 import FollowingDays from '../displays/FollowingDays.js';
 import axios from 'axios';
+import NotePad from '../functions/NotePad.js';
 
 const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersName, currentUsername}) => {
     console.log(currentUsername);
@@ -137,6 +138,7 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
             <div id='habits-today'>
                 <Habits />
                 <Today />
+                <NotePad />
             </div>
             <div id='following-days-display'>
                 <FollowingDays 
