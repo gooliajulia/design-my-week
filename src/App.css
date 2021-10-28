@@ -358,6 +358,15 @@ div#my-task-buttons button {
   background-color: rgb(247, 236, 225);
 }
 
+button#design-my-week {
+  height: 40px;
+  width: 100px;
+  margin: 0px;
+  border-radius: 25px;
+  border-style: none;
+  background-color: seashell;
+}
+
 div#add-new-task-form {
   padding: 30px;
   margin-top: 25px;

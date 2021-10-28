@@ -31,6 +31,7 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
     // to assign user task array from api request
     const [userTaskArray, setUserTaskArray] = useState([])
     const [currentUserTaskArray, setCurrentUserTaskArray] = useState([]);
+    const [rankedTaskArray, setRankedTaskArray] = useState([])
 
     const addNewTask = async (ev) => {
         ev.preventDefault();
@@ -55,6 +56,7 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
                         urgency: taskUrg,
                         enjoyment: taskEnj,
                         minutes: taskEstTime,
+                        rating: (parseInt(taskImp) + parseInt(taskUrg) + parseInt(taskEnj))
                         
                     }
                 }
@@ -113,6 +115,41 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
         console.log(currentUserTaskArray);
     }, [toggleFilter])
 
+    const rankTasks = (objectArray) => {
+        objectArray.sort((a,b) => {
+            return b.rating - a.rating;
+        })
+    }
+
+    const designMyWeek = () => {
+        console.log('designing your week');
+        /*
+        1. take currentUserTaskArray
+        */
+        let sortingArray = [];
+
+        currentUserTaskArray.map((object) =>
+        sortingArray.push(object.fields));
+        console.log(sortingArray);
+        rankTasks(sortingArray);
+        console.log(sortingArray);
+        setRankedTaskArray(sortingArray);
+        /*
+        2. make a new array to work with that consists the objects of each task, the ratings parseInted and a new property of 'rank'
+        NOTE: to start, simply rank the items and disregard timing. Assign them to days in groups of 5, Most important, 2 next important 2 extras.
+            for tasks that take longer than 45 minutes, break up into two new tasks. (if less than 60 minutes, 45 and 15, if less than 75, 45 and 30 etc. if 90, 45 and 45 and so on.)
+        3. Sort the array by rank
+        4. Assign as follows:
+            Today: first 5
+            Next Day: next 5
+            Next Next Day: next 5
+            ... etc.
+
+
+
+        */
+    }
+
 
     return (
         <div id='homepage' >
@@ -143,9 +180,11 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
                     setToggleFilter={setToggleFilter}
                     toggleFilter={setToggleFilter}
                     currentUserTaskArray={currentUserTaskArray}
-                    setCurrentUserTaskArray={setCurrentUserTaskArray}/>
+                    setCurrentUserTaskArray={setCurrentUserTaskArray}
+                    designMyWeek={designMyWeek}/>
             </div>
             <div id='habits-today'>
+            <button id='design-my-week' onClick={designMyWeek}>Design My Week</button>
                 <Habits />
                 <Today 
                 days={days}
@@ -154,25 +193,26 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
                 month={month}
                 day={day}
                 year={year}
+                rankedTaskArray={rankedTaskArray}
                 />
                 <NotePad />
             </div>
             <div id='following-days-display'>
                 <FollowingDays 
                 day={days[weekDay+1]}
-                tasksArray={['pay the bills', 'walk the dog', 'code some sick shit', 'pedicure', 'do the dishes']}
+                tasksArray={rankedTaskArray.slice(5,11)}
             />
                         <FollowingDays 
                 day={days[weekDay+2]}
-                tasksArray={['pay the bills', 'walk the dog', 'code some sick shit', 'pedicure', 'do the dishes']}
+                tasksArray={rankedTaskArray.slice(11,17)}
             />
                         <FollowingDays 
                 day={days[weekDay+3]}
-                tasksArray={['pay the bills', 'walk the dog', 'code some sick shit', 'pedicure', 'do the dishes']}
+                tasksArray={rankedTaskArray.slice(17,23)}
             />
                         <FollowingDays 
                 day={days[weekDay+4]}
-                tasksArray={['pay the bills', 'walk the dog', 'code some sick shit', 'pedicure', 'do the dishes']}
+                tasksArray={rankedTaskArray.slice(23,29)}
             />
             </div>
         </div>
