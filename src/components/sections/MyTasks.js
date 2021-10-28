@@ -22,6 +22,10 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
         setToggleFilter(!toggleFilter);
     }
 
+    const designMyWeek = () => {
+        console.log('designing your week');
+    }
+
 
     return (
         <div id='my-tasks'>
@@ -29,6 +33,7 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
             <div id='my-task-buttons'>
                 <button id='quick-add' className={ quickAddToggle ? 'show' : 'no-show'} onClick={quickAdd} >{quickAddButtonText}</button>
                 <button id='manage-tasks' onClick={manageTasks}>Manage Tasks</button>
+                <button id='design-my-week' onClick={designMyWeek}>Design My Week</button>
             </div>
             <div id='tasks-and-add'>
             { quickAddToggle ? 

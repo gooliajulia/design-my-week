@@ -5,7 +5,6 @@ const DisplayTaskList = ({ currentUsername, TASK_API_URL, currentUserTaskArray})
 
     return (
         <div id='display-cards'>
-            <div>
                 {currentUserTaskArray.map((task) => (
                     <DisplayCard 
                         type={'task'}
@@ -18,7 +17,6 @@ const DisplayTaskList = ({ currentUsername, TASK_API_URL, currentUserTaskArray})
                         TASK_API_URL={TASK_API_URL}
                     />
                 ))}
-            </div>
         </div>
     )
 }
