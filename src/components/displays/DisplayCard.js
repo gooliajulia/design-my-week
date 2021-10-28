@@ -1,8 +1,10 @@
-import axios from "axios"
+import axios from "axios";
+import {useState} from 'react';
 
 
 const DisplayCard = ({type, taskName, taskImportance, taskUrgency, taskTimeEst, taskEnjoyment, taskID, TASK_API_URL, setToggleTasksFetch, toggleTasksFetch, manageTasksToggle, setManageTasksToggle, toggleFilter, setToggleFilter}) => {
     const ifTask = ['task', 'importance', 'urgency', 'enjoyment', 'estimated time to complete']
+    const [deleted, setDeleted] = useState(false)
     // const ifRecipe = ['name', 'ingredients', 'directions']
 
     // Alternatively, we could try and use Class here. 
@@ -19,11 +21,14 @@ const DisplayCard = ({type, taskName, taskImportance, taskUrgency, taskTimeEst, 
         // setManageTasksToggle(!manageTasksToggle);
         setToggleFilter(!toggleFilter);
         // reRender();
+        setDeleted(true);
         
     }
 
     return (
-        <div className='display-card' id={taskID}>
+        <div>
+            { deleted ? null : 
+            <div className={`display-card ${ deleted ? 'deleted' : null}`} id={taskID}>
             <button className='delete' onClick={handleDelete}> x </button>
             <h2>{taskName}</h2>
             {/* <h3>{ifTask[0]}: {taskName}</h3> */}
@@ -33,6 +38,8 @@ const DisplayCard = ({type, taskName, taskImportance, taskUrgency, taskTimeEst, 
             <h3>{ifTask[4]}: {taskTimeEst} minutes</h3>
 
         </div>
+    }
+    </div>
     )
 }
 

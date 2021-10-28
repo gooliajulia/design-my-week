@@ -486,7 +486,7 @@ div#following-days-display {
 }
 div.day-display {
   width: 35vw;
-  height: 300px;
+  height: 250px;
   margin: 0 13px;
   background-color: seashell;
   border-style: solid;
@@ -494,12 +494,22 @@ div.day-display {
   border-radius: 25px;
 }
 
-div.day-display h2 {
-  margin-left: 25px;
+div.deleted {
+  background-color: black;
 }
 
-div.day-display li {
+div.day-display h2 {
+  margin-left: 25px;
+  font-weight: 200;
+}
+
+div.day-display h4 {
   font-size: 15px;
+  margin-left: 25px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 25px;
+  font-weight: 200;
 }
 
 div.display-card {
