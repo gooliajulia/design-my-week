@@ -185,7 +185,7 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
                     designMyWeek={designMyWeek}/>
             </div>
             <div id='habits-today'>
-            <Habits />
+                <Habits />
                 <Today 
                 days={days}
                 weekDay={weekDay}
