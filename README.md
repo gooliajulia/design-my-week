@@ -1,17 +1,17 @@
-# design-my-week
-A schedule designer and day optimizer
 
-# Project Overview
+## Design My Week
 
-## Project Name
-
-Design My Week.
+https://fervent-swartz-34d852.netlify.app
 
 ## Project Description
 
-"Design My Week" will be a dynamic website for user's to optimize their day and organize their week. The App will allow users to input to-do list items and recieve a customized plan for their week, taking into account importance and timliness of each task. There will be interactive sections of the App for users to optimize their day, self reflect and practice desired habits and skills.
+Design My Week is a React App for users to optimize their days and organize their weeks. The App allows users to input to-do list items and their corresponding ratings of importance, urgency, enjoyment and time-to-complete. Each task is stored in AirTable. The user can then click 'Design my week' and recieve a customized plan for the week, taking into account inputted ratings of each task. There are various other interactive sections of the App for users to optimize their day, including a self reflection page and sections to track habits and practice skills.
 
 ## Wireframes
+
+![image](https://user-images.githubusercontent.com/87200663/139360273-32236cfa-c684-48cb-9dd2-12fd4231b2ec.png)
+![image](https://user-images.githubusercontent.com/87200663/139360265-17850ca8-dd59-432a-8230-ddfe113b2512.png)
+
 
 Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
 
