@@ -1,92 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Vollkorn:wght@900&family=Zen+Old+Mincho&display=swap');
 
-@media (max-width: 375px) {
-
-  body {
-    width: 100vw;
-  }
-
-  div#top-section {
-    width: min-content;
-  }
-
-  div#nav-bar {
-    width: 100vw;
-    padding: 0px;
-  }
-
-  div#greeting-header {
-    width: 90vw;
-    margin-left: 30px;
-  }
-
-  div#today {
-    width: 300px;
-  }
-  div#my-tasks {
-    /* width: 50px; */
-    margin-right: 0px;
-    margin-left: 0px;
-    display: flex;
-    justify-content: flex-start;
-    align-content: flex-start;
-  }
-  h1.mytasks {
-    margin-right: -20px;
-    width: 20px;
-  }
-
-  div#my-task-buttons {
-    width: min-content;
-  }
-
-  div#habits {
-    margin-right: 25px;
-  }
-
-  a.nav {
-    margin-right: 0px;
-  }
-
-  div#my-task-buttons {
-    display: flex;
-    flex-direction: column;
-  }
-
-  div#following-days-display {
-    display: flex;
-    flex-direction: column;
-  }
-
-  div.day-display {
-    width: 200px;
-  }
-
-  div.display-card {
-    width: 10px;
-  }
-
-  div#tasks-and-add {
-    width: 300px;
-  }
-
-  div#display-cards {
-    display: flex;
-    height: 900px;
-    flex-direction: column;
-    /* flex-wrap: wrap; */
-  }
-
-}
 
 /* iPad responsive design */
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
 
   div#my-tasks {
     margin-right: 25px;
     background-color: black;
-    width:fit-content;
+    width:700px;
+    display: flex;
+    flex-direction: column;
   }
 
   div#tasks-and-add {
@@ -111,15 +35,6 @@
     width: 200px;
   }
 
-  div#following-days-display {
-    display: flex;
-    flex-wrap: wrap;
-    width: 500px;
-  }
-
-  div.day-display {
-    width: 200px;
-  }
 
   div.display-card {
     background-color: rgb(175, 199, 197);
