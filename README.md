@@ -117,7 +117,7 @@ This schedule will be used to keep track of your progress throughout the week an
 |October 25| Core App Structure - MVP Components Basic Functionality, Basic CSS Styling / Pseudocode each Component / Start Hard Code| Complete
 |October 26| Continue writing Hard Code / MVP | Complete
 |October 27| Clean up Code, README and glaring App quirks / Work on Post MVP| Complete
-|October 28| Post MVP / Clean Up / Presentation Prep | Complete
+|October 28| Work on some Post MVP / Clean Up / Presentation Prep | Complete
 |October 29| Presentations | TBD
 
 ## Timeframes
