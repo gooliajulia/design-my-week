@@ -1,23 +1,27 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 
-const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurrentUserAccountInfo, currentUserAccountInfo, setUsersName, usersName, setCurrentUsername, userIsLoggedIn, setUserIsLoggedIn}) => {
+const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurrentUserAccountInfo, setUsersName, setCurrentUsername, userIsLoggedIn, setUserIsLoggedIn}) => {
 
+    //_______Log In State_________//
     const [logInUsername, setLogInUsername] = useState('');
     const [logInPassword, setLogInPassword] = useState('');
 
+    //____Create Account State____//
     const [newUserName, setNewUserName] = useState('');
     const [newUserPassword, setNewUserPassword] = useState('');
     const [newUserFirstName, setNewUserFirstName] = useState('');
 
+    //___List of all users state__//
     const [usersList, setUsersList] = useState([]);
 
+    //__Function to add new User account __//
+    //__to the Users AirTable_____________//
     const handleCreateAccountSubmit = (ev) => {
         ev.preventDefault();
 
         const createNewAccount = async (ev) => {
             ev.preventDefault();
-            console.log('create account attempted');
     
             const newUser = {
                 records: [
@@ -37,47 +41,47 @@ const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurr
         setNewUserPassword('');
         setNewUserName('');
         setToggleUsersFetch(!toggleUsersFetch);
-
     }
 
+    // __ Function for log in that: ____//
+    //_____1. searches user list for ___//
+    //________user logging in___________//
+    //_____2. checks password against__//
+    //________stored password in ______//
+    //________AirTable_________________//
+    //_____3. Either sets user as ______//
+    //________logged in or alerts_______//
+    //________then to try password again__//
     const handleLogInSubmit = (ev) => {
         ev.preventDefault();
-        console.log('log in attempted');
-        console.log(logInUsername);
         let userFound = usersList.find((user) => {
             if(user.fields.username === logInUsername)
-            return true;
+                return true;
         });
-        console.log(userFound);
+
         if (userFound.fields.password === logInPassword) {
-            console.log('passwords match')
             setCurrentUsername(logInUsername);
             setCurrentUserAccountInfo(userFound);
             setUsersName(userFound.fields.firstName)
             setUserIsLoggedIn(true);
         } else {
-            console.log("passwords don't match")
             alert("Password is incorrect. Please try again.")
             setLogInPassword('');
             setCurrentUsername('');
             setUserIsLoggedIn(false);
         }
-        console.log(userIsLoggedIn)
     }
 
     const getUserInfo = async () => {
-        console.log('getting user info...');
 
         const resp = await axios.get(`${USER_API_URL}`);
-        console.log(resp.data.records);
         setUsersList(resp.data.records);
-        return(resp.data.records)
+        return(resp.data.records);
+
     }
 
     useEffect(() => {
-        console.log('getting user list');
         getUserInfo();
-        console.log(usersList)
     }, [toggleUsersFetch])
 
     return (
@@ -96,20 +100,16 @@ const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurr
                         <br/>
                         <br/>
                         <br/>
-                        {/* <Link to={`./homepage/${usersName}`}> */}
-                            <input type='submit' />
-                        {/* </Link> */}
+                        <input type='submit' />
                     </form>
                     <form id='create-account' onSubmit={handleCreateAccountSubmit}>
                         <h2>Create new acount: </h2>
                         <label htmlFor='new-user-name'>First name: </label>
                         <input type='text' id='new-user-name' value={newUserFirstName} onChange={(ev) => setNewUserFirstName(ev.target.value)} />
-                        {/* <br/> */}
                         <br/>
                         <label htmlFor='create-username'>Create new username: </label>
                         <input type='text' id='create-username' value={newUserName} onChange={(ev) => setNewUserName(ev.target.value)}/>
                         <br/>
-                        {/* <br/> */}
                         <label htmlFor='create-password'>Create password: </label>
                         <input type='text' id='create-password' value={newUserPassword} onChange={(ev) => setNewUserPassword(ev.target.value)}/>
                         <br/>
@@ -121,6 +121,5 @@ const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurr
             
     )
 }
-
 
 export default UserEntry;
