@@ -97,11 +97,13 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
         })
     }
 
+    // __Ranks tasks and updates state of __//
+    //___ranked task array so homepage _____//
+    //___updates as well___________________//
     const designMyWeek = () => {
-        console.log('designing your week');
         let sortingArray = [];
         currentUserTaskArray.map((object) =>
-        sortingArray.push(object.fields));
+            sortingArray.push(object.fields));
         rankTasks(sortingArray);
         setRankedTaskArray(sortingArray);
     }
@@ -112,7 +114,6 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
             <div id='top-section'>
                 <GreetingHeader
                     name={usersName}/>
-
             </div>
             <div id='task-display'>
             <MyTasks
@@ -154,24 +155,19 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
             </div>
             <div id='following-days-display'>
                 <FollowingDays 
-                day={days[weekDay+1]}
-                tasksArray={rankedTaskArray.slice(5,10)}
-            />
-                        <FollowingDays 
-                day={days[weekDay+2]}
-                tasksArray={rankedTaskArray.slice(10,15)}
-            />
-                        <FollowingDays 
-                day={days[weekDay+3]}
-                tasksArray={rankedTaskArray.slice(15,20)}
-            />
-                        <FollowingDays 
-                day={days[weekDay+4]}
-                tasksArray={rankedTaskArray.slice(23,29)}
-            />
+                    day={days[weekDay+1]}
+                    tasksArray={rankedTaskArray.slice(5,10)}/>
+                <FollowingDays 
+                    day={days[weekDay+2]}
+                    tasksArray={rankedTaskArray.slice(10,15)}/>
+                <FollowingDays 
+                    day={days[weekDay+3]}
+                    tasksArray={rankedTaskArray.slice(15,20)}/>
+                <FollowingDays 
+                    day={days[weekDay+4]}
+                    tasksArray={rankedTaskArray.slice(20,25)}/>
             </div>
         </div>
-
     )
 }
 
