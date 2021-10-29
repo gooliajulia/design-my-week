@@ -47,6 +47,7 @@ const MyTasks = ({addNewTask, task, setTask, taskImp, setTaskImp, taskUrg, setTa
                         setTaskEstTime={setTaskEstTime}
                     />
             : null}
+            
             { manageTasksToggle ? 
                     <DisplayTaskList 
                         key={userTaskArray.id}

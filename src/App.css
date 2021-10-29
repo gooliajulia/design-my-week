@@ -24,7 +24,7 @@
     width: 300px;
   }
   div#my-tasks {
-    width: 50px;
+    /* width: 50px; */
     margin-right: 0px;
     margin-left: 0px;
     display: flex;
@@ -62,19 +62,44 @@
     width: 200px;
   }
 
+  div.display-card {
+    width: 10px;
+  }
+
+  div#tasks-and-add {
+    width: 300px;
+  }
+
+  div#display-cards {
+    display: flex;
+    height: 900px;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+  }
+
 }
 
-@media (max-width: 745px) {
+/* iPad responsive design */
+
+@media screen and (max-width: 768px) {
 
   div#my-tasks {
     margin-right: 25px;
     background-color: black;
-    width:min-content
+    width:fit-content;
   }
 
   div#tasks-and-add {
-    height: fit-content;
     margin: 0px;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    width: 600px;
+    flex-wrap: wrap;
+  }
+
+  div.task-line h2 {
+    font-size: 5px;
   }
 
   div#display-cards {
@@ -89,7 +114,23 @@
   div#following-days-display {
     display: flex;
     flex-wrap: wrap;
+    width: 500px;
+  }
 
+  div.day-display {
+    width: 200px;
+  }
+
+  div.display-card {
+    background-color: rgb(175, 199, 197);
+    width: 80px;
+    height:max-content;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: seashell;
+    margin-top: 25px;
+    /* margin-left: 25px; */
+    padding: 15px;
   }
 
 }

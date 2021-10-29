@@ -8,7 +8,7 @@ const DisplayTaskList = ({ TASK_API_URL, currentUserTaskArray, setToggleTasksFet
 
     return (
         <div id='display-cards'>
-                { currentUserTaskArray.map((task) => (
+                { currentUserTaskArray.map((task, idx) => (
                     <DisplayCard 
                         type={'task'}
                         taskName={task.fields.task}
@@ -24,6 +24,7 @@ const DisplayTaskList = ({ TASK_API_URL, currentUserTaskArray, setToggleTasksFet
                         manageTasksToggle={manageTasksToggle}
                         setToggleFilter={setToggleFilter}
                         toggleFilter={toggleFilter}
+                        index={idx}
                     />
                 )) }
         </div>

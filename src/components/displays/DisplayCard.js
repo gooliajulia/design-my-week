@@ -2,7 +2,7 @@ import axios from "axios";
 import {useState} from 'react';
 
 
-const DisplayCard = ({taskName, taskImportance, taskUrgency, taskTimeEst, taskEnjoyment, taskID, TASK_API_URL, setToggleTasksFetch, toggleTasksFetch, toggleFilter, setToggleFilter}) => {
+const DisplayCard = ({taskName, taskImportance, taskUrgency, taskTimeEst, taskEnjoyment, taskID, TASK_API_URL, setToggleTasksFetch, toggleTasksFetch, toggleFilter, setToggleFilter, index}) => {
     const ifTask = ['task', 'importance', 'urgency', 'enjoyment', 'estimated time to complete']
     const [deleted, setDeleted] = useState(false)
     const [show, setShow] = useState(false);
@@ -21,7 +21,7 @@ const DisplayCard = ({taskName, taskImportance, taskUrgency, taskTimeEst, taskEn
     return (
         <div className='card-display-outer'>
             { deleted ? null : 
-            <div className={`display-card ${ deleted ? 'deleted' : null}`} id={taskID}>
+            <div className={`display-card ${ deleted ? 'deleted' : null}`} id={index}>
             <div className='task-inline'>
             <h2>{taskName}</h2>
             <button className='delete' onClick={handleDelete}> x </button>
