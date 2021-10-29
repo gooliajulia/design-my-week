@@ -8,6 +8,7 @@ import axios from 'axios';
 
 const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersName, currentUsername}) => {
 
+    // _________Day and Date______________//
     const d = new Date();
     let weekDay = d.getDay();
     let month = d.getMonth();
@@ -16,6 +17,8 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
     const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday']
     const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
 
+
+    // _________New Task State__________//
     const [task, setTask] = useState('');
     const [taskImp, setTaskImp] = useState('');
     const [taskUrg, setTaskUrg] = useState('');
@@ -23,19 +26,15 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
     const [taskEstTime, setTaskEstTime] = useState('');
     const [toggleFilter, setToggleFilter] = useState(false);
 
-    // to assign user task array from api request
+    // _________Task Array States______//
     const [userTaskArray, setUserTaskArray] = useState([])
     const [currentUserTaskArray, setCurrentUserTaskArray] = useState([]);
     const [rankedTaskArray, setRankedTaskArray] = useState([])
 
+    // Function that creates a new task based on user input, 
+    // and posts that task to the 'All User Tasks' AirTable
     const addNewTask = async (ev) => {
         ev.preventDefault();
-        console.log('adding task to airtable with username')
-        console.log('Task: ' + task);
-        console.log('Importance: ' + taskImp);
-        console.log('Urgency: ' + taskUrg);
-        console.log('Enjoyment: ' + taskEnj);
-        console.log('Estimated time to complete: ' + taskEstTime);
 
         const newTask = {
             records: [
@@ -54,36 +53,23 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
             ]
         }
 
-        // Create a POST request to the All User Tasks Table
+        // ___________POST Request ______________//
         const resp = await axios.post(`${TASK_API_URL}`, newTask)
-        console.log(resp)
+
+        //____Reset Task State and entry fields_____//
         setTask('');
         setTaskImp('');
         setTaskUrg('');
         setTaskEnj('');
         setTaskEstTime('');
-
     }
 
 
     useEffect(() => {
-        console.log('Getting All users tasks');
-        const user = {
-            records: [
-                {
-                    fields: {
-                        Name: `${currentUsername}`
-                    }
-                }
-            ]
-        }
 
+        // ______ a GET request that gets ALL Users Tasks ______//
         const getUsersTaskArray = async () => {
-            console.log('getting users task array...');
-    
-            const resp = await axios.get(`${TASK_API_URL}`, user);
-            console.log('api fetch results: ')
-            console.log(resp.data.records);
+            const resp = await axios.get(`${TASK_API_URL}`);
             setUserTaskArray(resp.data.records);
         }
 
@@ -91,20 +77,20 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
         setToggleFilter(!toggleFilter);
     }, [toggleTasksFetch])
 
+
+    // _____UseEffect for filtering out just______//
+    // ____ current users tasks from array________//
     useEffect(() => {
-        console.log('filtering tasks');
-        console.log(userTaskArray);
         let filteredArray = [];
         userTaskArray.forEach((task) => {
             if (task.fields.Name === currentUsername) {
                 filteredArray.push(task);
             }
         })
-        console.log(filteredArray)
         setCurrentUserTaskArray(filteredArray);
-        console.log(currentUserTaskArray);
     }, [toggleFilter])
 
+    //_____Sorts the array based off of rating value_____//
     const rankTasks = (objectArray) => {
         objectArray.sort((a,b) => {
             return b.rating - a.rating;
@@ -113,31 +99,11 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
 
     const designMyWeek = () => {
         console.log('designing your week');
-        /*
-        1. take currentUserTaskArray
-        */
         let sortingArray = [];
-
         currentUserTaskArray.map((object) =>
         sortingArray.push(object.fields));
-        console.log(sortingArray);
         rankTasks(sortingArray);
-        console.log(sortingArray);
         setRankedTaskArray(sortingArray);
-        /*
-        2. make a new array to work with that consists the objects of each task, the ratings parseInted and a new property of 'rank'
-        NOTE: to start, simply rank the items and disregard timing. Assign them to days in groups of 5, Most important, 2 next important 2 extras.
-            for tasks that take longer than 45 minutes, break up into two new tasks. (if less than 60 minutes, 45 and 15, if less than 75, 45 and 30 etc. if 90, 45 and 45 and so on.)
-        3. Sort the array by rank
-        4. Assign as follows:
-            Today: first 5
-            Next Day: next 5
-            Next Next Day: next 5
-            ... etc.
-
-
-
-        */
     }
 
 
