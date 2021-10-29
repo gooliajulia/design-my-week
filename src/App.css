@@ -172,7 +172,7 @@ div#user-forms input[type=password] {
 div#greeting-header {
   /* height: 270px; */
   height:max-content;
-  width: 90vw;
+  width: 50vw;
   padding: 25px;
   background-color: seashell;
   border-radius: 25px;
@@ -184,6 +184,23 @@ div#greeting-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+div#top-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+div#habits {
+    background-color: seashell;
+    width:max-content;
+    margin-left: 25px;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: rgb(243, 230, 217);
+    padding-left: 25px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
 }
 
 h1.greeting-header {
@@ -252,17 +269,7 @@ div#habits-today {
   flex-wrap:wrap;
 }
 
-div#habits {
-  background-color: seashell;
-  width: 200px;
-  margin-left: 25px;
-  border-radius: 25px;
-  border-style: solid;
-  border-color: rgb(243, 230, 217);
-  height:min-content;
-  padding-left: 25px;
-  padding-bottom: 25px;
-}
+
 
 div#habits-list {
   display: flex;
@@ -274,11 +281,13 @@ div#habits-list {
 div#habits h4 {
   font-weight: 200;
   margin: 0;
+  margin-right: 15px;
 }
 
 button.checkbox {
   height: 15px;
   width: 15px;
+  margin-bottom: 10px;
   background-color: rgb(243, 230, 217);
   border-style: none;
   border-color: rgb(216, 204, 193);
@@ -287,7 +296,6 @@ button.checkbox {
 div.inline-habit {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   margin-right: 25px;
 }
 
@@ -318,7 +326,8 @@ div#tasks-and-add {
 
 div#display-cards {
   display: flex;
-  flex-direction: row;
+  height: 259px;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 
@@ -328,7 +337,21 @@ button.delete {
   height: 20px;
   border-style: none;
   border-radius: 25px;
-  margin-left: 175px; 
+  /* margin-left: 175px;  */
+}
+
+div.task-inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+div#my-task-buttons {
+  margin-bottom: 25px;
+}
+
+div.display-card.null {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 h1.my-tasks {
@@ -407,7 +430,7 @@ div#manage-tasks h4 {
 
 div#today {
   background-color:seashell ;
-  width:fit-content;
+  width: 50vw;
   height:fit-content;
   margin-left: 25px;
   margin-right: 25px;
@@ -514,23 +537,39 @@ div.day-display h4 {
 
 div.display-card {
   background-color: rgb(175, 199, 197);
-  width: 200px;
+  width: 180px;
   height:max-content;
   border-style: solid;
   border-radius: 25px;
   border-color: seashell;
   margin-top: 25px;
-  margin-left: 25px;
-  padding: 25px;
+  /* margin-left: 25px; */
+  padding: 15px;
+}
+
+div.card-display-outer {
+  margin-bottom: 0px;
+  display: flex;
 }
 
 div.display-card h2 {
   margin-top: 0px;
+  margin-bottom: 0px;
   font-weight: 300;
+  font-size: 15px;
 }
 
 div.display-card h3 {
   font-weight: 200;
+  font-size: 15px;
+}
+
+div#reflections {
+  margin: 25px;
+}
+
+div#reflections textarea {
+  width: 600px;
 }
 
 footer {

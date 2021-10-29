@@ -15,20 +15,20 @@ const Today = ({days, weekDay, months, month, day, year,rankedTaskArray}) => {
             <h3>Next up: </h3>
             <div className='inline-habit'>
                 <CheckBox />
-                <h4>{rankedTaskArray.length > 0 ? rankedTaskArray[1].task : null }</h4>
+                <h4> {rankedTaskArray.length > 0 ? rankedTaskArray[1].task : null }</h4>
             </div>
             <div className='inline-habit'>
                 <CheckBox />
-                <h4>{rankedTaskArray.length > 0 ? rankedTaskArray[2].task : null }</h4>
+                <h4> {rankedTaskArray.length > 0 ? rankedTaskArray[2].task : null }</h4>
             </div>
             <h3>Bonus tasks:</h3>
             <div className='inline-habit'>
                 <CheckBox />
-                <h4>{rankedTaskArray.length > 0 ? rankedTaskArray[3].task : null }</h4>
+                <h4> {rankedTaskArray.length > 0 ? rankedTaskArray[3].task : null }</h4>
             </div>                
             <div className='inline-habit'>
                 <CheckBox />
-                <h4>{rankedTaskArray.length > 0 ? rankedTaskArray[4].task : null }</h4>
+                <h4> {rankedTaskArray.length > 0 ? rankedTaskArray[4].task : null }</h4>
             </div>
         </div>
     )

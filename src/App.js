@@ -16,7 +16,7 @@ function App() {
   const [toggleUsersFetch, setToggleUsersFetch] = useState(false);
   const [toggleTasksFetch, setToggleTasksFetch] = useState(false);
   const [currentUserAccountInfo, setCurrentUserAccountInfo] = useState([]);
-  const [usersName, setUsersName] = useState('all-star');
+  const [usersName, setUsersName] = useState('');
   const [currentUsername, setCurrentUsername] = useState('sampleUser');
   const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
 
@@ -53,7 +53,6 @@ function App() {
       <Reflections />
     </Route>
     <footer>
-
     </footer>
   </div>
   );

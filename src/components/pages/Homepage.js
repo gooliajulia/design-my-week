@@ -153,10 +153,11 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
 
     return (
         <div id='homepage' >
-            <div>
-            </div>
+            <div id='top-section'>
                 <GreetingHeader
                     name={usersName}/>
+
+            </div>
             <div id='task-display'>
             <MyTasks
                     addNewTask={addNewTask}
@@ -184,8 +185,7 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
                     designMyWeek={designMyWeek}/>
             </div>
             <div id='habits-today'>
-            {/* <button id='design-my-week' onClick={designMyWeek}>Design My Week</button> */}
-                <Habits />
+            <Habits />
                 <Today 
                 days={days}
                 weekDay={weekDay}
@@ -195,7 +195,7 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
                 year={year}
                 rankedTaskArray={rankedTaskArray}
                 />
-                <NotePad />
+                {/* <NotePad /> */}
             </div>
             <div id='following-days-display'>
                 <FollowingDays 
