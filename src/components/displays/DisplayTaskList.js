@@ -1,8 +1,8 @@
 
-import { useEffect, useState } from 'react';
+
 import DisplayCard from './DisplayCard.js';
 
-const DisplayTaskList = ({ currentUsername, TASK_API_URL, currentUserTaskArray, setCurrentUserTaskArray, setToggleTasksFetch, toggleTasksFetch, setManageTasksToggle, manageTasksToggle, setToggleFilter, toggleFilter}) => {
+const DisplayTaskList = ({ TASK_API_URL, currentUserTaskArray, setToggleTasksFetch, toggleTasksFetch, setManageTasksToggle, manageTasksToggle, setToggleFilter, toggleFilter}) => {
 
 
 

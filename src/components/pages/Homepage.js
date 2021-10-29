@@ -5,11 +5,8 @@ import Habits from '../sections/Habits.js';
 import MyTasks from '../sections/MyTasks.js';
 import FollowingDays from '../displays/FollowingDays.js';
 import axios from 'axios';
-import NotePad from '../functions/NotePad.js';
 
 const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersName, currentUsername}) => {
-    console.log(currentUsername);
-    console.log(TASK_API_URL);
 
     const d = new Date();
     let weekDay = d.getDay();
@@ -19,8 +16,6 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
     const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday']
     const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
 
-
-    // These set state for Add new task form
     const [task, setTask] = useState('');
     const [taskImp, setTaskImp] = useState('');
     const [taskUrg, setTaskUrg] = useState('');
@@ -41,10 +36,6 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
         console.log('Urgency: ' + taskUrg);
         console.log('Enjoyment: ' + taskEnj);
         console.log('Estimated time to complete: ' + taskEstTime);
-
-        // Will likely need to parseInt each integer
-        // Add task to Airtable of Tasks with username as Name
-        // (try this first with the already assigned Name in airtable, otherwise add a username column)
 
         const newTask = {
             records: [
@@ -77,7 +68,6 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
 
     useEffect(() => {
         console.log('Getting All users tasks');
-
         const user = {
             records: [
                 {
@@ -195,7 +185,6 @@ const HomePage = ({TASK_API_URL, toggleTasksFetch, setToggleTasksFetch, usersNam
                 year={year}
                 rankedTaskArray={rankedTaskArray}
                 />
-                {/* <NotePad /> */}
             </div>
             <div id='following-days-display'>
                 <FollowingDays 
