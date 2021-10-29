@@ -64,6 +64,37 @@
 
 }
 
+@media (max-width: 745px) {
+
+  div#my-tasks {
+    margin-right: 25px;
+    background-color: black;
+    width:min-content
+  }
+
+  div#tasks-and-add {
+    height: fit-content;
+    margin: 0px;
+  }
+
+  div#display-cards {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    height: 500px;
+    width: 200px;
+  }
+
+  div#following-days-display {
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+
+}
+
+
 
 
 div#App {
