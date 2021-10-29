@@ -392,7 +392,8 @@ button#design-my-week {
 
 div#add-new-task-form {
   padding: 30px;
-  margin-top: 25px;
+  margin-top: 0px;
+  margin-right: 25px;
   border-style: solid;
   width: 200px;
   height: 285px;
