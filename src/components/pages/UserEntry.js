@@ -94,7 +94,8 @@ const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurr
     return (
             <div id='user-log-in'>
                 <h1>Hello!</h1>
-                <h2>If you already have an account, please log in. Otherwise click 'Create Account'.</h2>
+                <h2>If you already have an account, please log in. Otherwise click 'Create Account'. If you want to explore the site as a demo without logging in, click 'Home'</h2>
+                <h2></h2>
                 <div id='user-forms'>
                     <form id='log-in' onSubmit={handleLogInSubmit}>
                         <h2>Log In: </h2>
