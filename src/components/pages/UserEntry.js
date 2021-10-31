@@ -54,6 +54,7 @@ const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurr
     //________then to try password again__//
     const handleLogInSubmit = (ev) => {
         ev.preventDefault();
+        getUserInfo();
         let userFound = usersList.find((user) => {
             if(user.fields.username === logInUsername)
                 return true;
@@ -103,7 +104,7 @@ const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurr
                         <input type='submit' />
                     </form>
                     <form id='create-account' onSubmit={handleCreateAccountSubmit}>
-                        <h2>Create new acount: </h2>
+                        <h2>Create new account: </h2>
                         <label htmlFor='new-user-name'>First name: </label>
                         <input type='text' id='new-user-name' value={newUserFirstName} onChange={(ev) => setNewUserFirstName(ev.target.value)} />
                         <br/>
@@ -113,7 +114,7 @@ const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurr
                         <label htmlFor='create-password'>Create password: </label>
                         <input type='text' id='create-password' value={newUserPassword} onChange={(ev) => setNewUserPassword(ev.target.value)}/>
                         <br/>
-                        <br/>
+                        <p>*note: please refresh page after creating account before you attempt to log in</p>
                         <input type='submit' />
                     </form>
                 </div>
