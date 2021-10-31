@@ -56,8 +56,14 @@ const UserEntry = ({USER_API_URL, toggleUsersFetch, setToggleUsersFetch, setCurr
         ev.preventDefault();
         getUserInfo();
         let userFound = usersList.find((user) => {
-            if(user.fields.username === logInUsername)
-                return true;
+            if(user.fields.username === logInUsername) {
+                return true}
+                else {
+                    setLogInPassword('');
+                    setLogInUsername('');
+                    alert('Username not found, please refresh the page and try again.')
+                    return false
+                }
         });
 
         if (userFound.fields.password === logInPassword) {
